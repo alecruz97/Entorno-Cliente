@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript">
+
+      var nums = [3,2,1,4];
+
+      var listar = () => {
+        /*lista.id.value = "valores";
+        alert(lista.name.value);*/
+        for(i=0 ; i<nums.length;i++){
+        lista.innerHTML += "<li> " + nums[i] + " </li>";
+      }
+    }
+
+      function minum(){
+        alert(Math.min(...nums));
+      }
+
+      var triple = () => {
+        for(i=0;i<nums.length;i++){
+          alert("el triple de " + nums[i] + " es: " + nums[i] * 3);
+        }
+      }
+
+
+    </script>
+
+
+  </head>
+
+  <body>
+    <input type="button" value="Lista" onclick="listar();"/>
+    <input type="button" value="Minimo" onclick="minum();"/>
+    <input type="button" value="Triple" onclick="triple();"/>
+    <ul id="lista" ></ul>
+  </body>
+</html>

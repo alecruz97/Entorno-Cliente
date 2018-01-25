@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Actividad 6</title>
+        <script type="text/javascript" src="cookies.js"></script>
+        <script type="text/javascript">
+            
+            var total = 0;
+            if(getCookie("total")===null){
+                setCookie("total",0);
+            }
+            
+            function votar(){
+                total ++;
+                var radios = document.forms[0];
+                for(var i = 0; i < radios.a.length; i++){
+                    if(radios.a[i].checked){
+                        setCookie(radios.a[i].value, parseInt(getCookie(radios.a[i].value)) +1 );
+                        setCookie("total", parseInt(getCookie("total")) + 1);
+                        cambiarMeters();
+                    }
+                }
+            }
+            
+            function cambiarMeters(){
+                var ios = ((100 * (parseFloat(getCookie("iOs"))/getCookie("total")))/100);
+                var and = ((100 * (parseFloat(getCookie("Android"))/getCookie("total")))/100);
+                var wind =((100 * (parseFloat(getCookie("Windows"))/getCookie("total")))/100);
+                var otros =((100 * (parseFloat(getCookie("Otro"))/getCookie("total")))/100);
+                meterIos.value = ios;
+                meterAndroid.value = and;
+                meterWindows.value = wind;
+                meterOtros.value = otros;
+                
+                
+            }
+            
+            function votaciones(){
+                if(getCookie("iOs") === null){
+                    console.log("No existen cookies de iOs");
+                    setCookie("iOs",0);
+                }       
+                if(getCookie("Android") === null){
+                    console.log("No existen cookies de Android");
+                    setCookie("Android",0);
+                }                
+                if(getCookie("Windows") === null){
+                    console.log("No existen cookies de Windows Phone");
+                    setCookie("Windows",0);
+                }
+                if(getCookie("Otro") === null){
+                    console.log("No existen cookies de otros SO");
+                    setCookie("Otro",0);
+                }
+            }
+            window.onload = function(){
+                votaciones();
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>¿Que sistema operativo movil te gusta mas?</h1>
+        <br/>
+        <form action="javascript:votar()" method="post" id="formu">
+            <input type="radio" name="a" value="iOs"/>iOs<br/>
+            <input  type="radio"  name="a" value="Android"/>Android<br/>
+            <input  type="radio"  name="a" value="Windows"/>Windows Phone<br/>
+            <input type="radio"  name="a" value="Otro"/>Otro<br/>
+            <input id="vot" type="submit"  name="a" value="¡Votar!" /> <br/> 
+        </form>
+        <br/><br/>
+        
+            <meter id="meterIos" value="0.0"></meter>iOs<br/>
+            <meter id="meterAndroid" value="0.0"></meter>Android<br/>
+            <meter id="meterWindows" value="0.0"></meter>Windows Phone<br/>
+            <meter id="meterOtros" value="0.0"></meter>Otros<br/>
+    </body>
+
+</html>

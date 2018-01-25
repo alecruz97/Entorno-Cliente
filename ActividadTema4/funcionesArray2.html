@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            function ej2(){
+                var valores = [1,3,5,2,6];
+                
+                if(valores.every(elem => elem >= 1)){
+                    document.write("Todos los valores del array son positivos <br/>");
+                }else{
+                    document.write("Hay algun valor que no lo es <br/>");
+                }
+                
+                var triplicado = valores.map(function(x) {
+                    return x * 3;
+                });
+                document.write(triplicado + "<br/>");
+
+                let mult = triplicado.reduce((total, num) => total * num);
+                document.write("El resultado es: " + mult);
+            }
+            ej2();
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

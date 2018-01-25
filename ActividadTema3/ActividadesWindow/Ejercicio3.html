@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+      <script type="text/javascript">
+
+          window.onload = interval();
+
+          function interval(){
+              var interval = setInterval(titu,1000);
+          }
+          function titu(){
+            var ahora = new Date();
+            var hora;
+            var minutos;
+            var segundos;
+            if(ahora.getHours()<10){
+                hora = "0" + ahora.getHours();
+            }else{
+                hora = ahora.getHours();
+            }
+            if(ahora.getMinutes()<10){
+                minutos = "0" + ahora.getMinutes();
+            }else{
+                minutos = ahora.getMinutes();
+            }
+            if(ahora.getSeconds()<10){
+                segundos = "0" + ahora.getSeconds();
+            }else{
+                segundos = ahora.getSeconds();
+            }
+
+            document.title = hora+":"+minutos+":"+segundos;
+            // Tambien se puede hacer con ToLocaleTimeString
+
+          }
+          function pararReloj(){
+              clearInterval(interval);
+              alert("The World \nTime has stopped!");
+          }
+      </script>
+    </head>
+  <body>
+
+      <!-- <input type="button" value = "Titulo" onclick="titu();"/>-->
+      <input type="button" value = "Parar Hora" onclick="pararReloj()";
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript">
+        var comprobasion;
+        function horaActual(){
+            var hora = new Date();
+            document.getElementsByName("Hora")[0].value = hora.getHours();
+            document.getElementsByName("Minutos")[0].value = hora.getMinutes();
+        }
+        function actualizarHora(){
+          var intervalo = setInterval(horaActual,1000);
+        }
+        function activarAlarma(){
+           var horaAlarma = document.getElementsByName("HoraAlarma")[0].value;
+           var minutoAlarma = document.getElementsByName("MinutoAlarma")[0].value;
+            if(horaAlarma >= 0 && horaAlarma<=23){
+                if(minutoAlarma >= 0 && minutoAlarma<60){
+                   comprobasion = setInterval(comprobarHora,1000);
+                }else{
+                    alert("Oiga que los minutos de la alarma estan mal.")
+                }
+            }else{
+                alert("Oiga la hora de la alarma esta mal.")
+            }
+            //setHoraAlarma +2 mas o menos para cuando el usuario quiera despertar
+            }
+        function comprobarHora(){
+            if(document.getElementsByName("Hora")[0].value == document.getElementsByName("HoraAlarma")[0].value && document.getElementsByName("Minutos")[0].value == document.getElementsByName("MinutoAlarma")[0].value){
+                if(confirm("¿Quieres dormir un poquito mas?")){
+                   if(document.getElementsByName("MinutoAlarma")[0].value >57){
+                       document.getElementsByName("HoraAlarma")[0].value = parseInt(document.getElementsByName("HoraAlarma")[0].value) + 1 ;
+                      document.getElementsByName("MinutoAlarma")[0].value = parseInt(document.getElementsByName("MinutoAlarma")[0].value) + 2;
+                   }else{
+                       document.getElementsByName("MinutoAlarma")[0].value = parseInt(document.getElementsByName("MinutoAlarma")[0].value) + 2;
+                   }
+                 }else{
+                   clearInterval(comprobasion);
+                 }
+            }else{
+            }
+        }
+        window.onload = actualizarHora;
+    </script>
+  </head>
+  <body>
+    <form name="alarma">
+        <label >Hora: <input type="text" name="Hora" /></label>
+        <input type="text" name="Minutos"/>
+        <!--<input type="button" value="Activar Alarma" onclick="actualizarHora()"/>-->
+    <br/>
+    <br/>
+    <br/>
+        <label >Hora de alarma: <input type="text" name="HoraAlarma" /></label>
+        <input type="text" name="MinutoAlarma"/>
+        <input type="button" value="Activar Alarma" onclick="activarAlarma()"/>
+    </form>
+  </body>
+</html>

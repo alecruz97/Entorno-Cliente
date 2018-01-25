@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 7 b</title>
+        <script type="text/javascript">
+            
+            function crearTabla(){
+             var tabla = document.createElement("table");
+             var filas = prompt("Introduzca numero de filas");    
+             var colums = prompt("Introduzca numero de columnas");
+                
+                for(var i = 0; i < filas; i++){
+                    var hilera = tabla.insertRow(i);
+                    for(var j = 0; j < colums ; j++){
+                        var celda = hilera.insertCell(j);
+                    }
+                }                
+            tabla.setAttribute("border", 1);
+            body.insertBefore(tabla, boton);
+            tabla.addEventListener("click", cambiar);
+            }
+            
+            
+            function rellenarTabla(){
+                var tabla = document.getElementsByTagName("table");
+                var filas = document.getElementsByTagName("tr");
+                for(var i = 0; i < filas.length; i++){
+                    for(var j = 0; j < filas[i].cells.length; j++){
+                        var t = prompt("row --> " + i + " cell --> " +j);
+                        var txt = document.createTextNode(t);
+                        
+                        if(!(filas[i].cells[j].hasChildNodes())){
+                            filas[i].cells[j].appendChild(txt);
+                        }else{
+                            filas[i].cells[j].replaceChild(txt, filas[i].cells[j].firstChild);
+                        }
+                    }
+                }
+            }
+            
+            function borrarFila(){
+                var b = prompt("Introduzca el numero de la fila que quiere borrar (del 1 al numero de filas)");
+                if(!(b < 1 || b > document.getElementsByTagName("table")[0].getElementsByTagName("tr").length)){
+                    document.getElementsByTagName("table")[0].deleteRow(b-1);
+                }else{
+                    alert("Fila introducida no valida");
+                }
+            }
+            
+            function insertarFila(){
+                var table = document.getElementsByTagName("table")[0];
+                var fila = table.insertRow(-1);
+                for(var i = 0; i < table.rows[0].cells.length; i++){
+                    fila.insertCell(0);
+                }
+                for(var j = 0; j < table.rows.length; j++){
+                    table.rows[j].insertCell(-1);
+                }
+                
+            }
+            
+            function cambiar(e){
+                var x = prompt("Introduzca un nuevo valor");
+                var txt = document.createTextNode(x);
+                var celda = e.target;
+                if(celda.hasChildNodes()){
+                    celda.replaceChild(txt,celda.firstChild);
+                }else{
+                    celda.appendChild(txt);
+                }
+            }
+            
+            window.onload = () =>{
+                boton.addEventListener("click", rellenarTabla);
+                borrar.addEventListener("click", borrarFila);
+                meter.addEventListener("click", insertarFila);
+                crearTabla();
+            }
+       
+            
+        </script>
+    </head>
+
+    <body id="body">
+            
+        <input type="button" id="boton" value="Rellenar"/>
+        <input type="button" id="borrar" value="Borrar Fila" />
+        <input type="button" id="meter" value="Insertar nueva fila"/>
+
+
+    </body>
+    
+    
+    
+</html>

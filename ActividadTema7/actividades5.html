@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+        div {
+            position: absolute;
+            top: 0;
+            left: 100;
+            width: 800px;
+            height: 70px;
+            background-color: dodgerblue;
+        }
+        
+        input {
+            position: absolute;
+            top: 300;
+            left: 140;
+        } 
+        .izquierdo {
+            position: absolute;
+            top: 300;
+            left: 140;
+        }
+        .derecho {
+            position: absolute;
+            top: 300;
+            left: 270;
+        }
+
+	</style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        // 1 y 2
+        $(document).ready(function(){
+            /*$('body').append('<input type="button" value="Mover" />');
+            $('input').on('click', function(e){
+               $('div').width($('div').width() - 150);
+                console.log($('div').width());
+               $('div').css({top: $('div').position().top, left: ($('div').position().left - 100)});    
+            });*/
+            /*$('div').on('dblclick', function(e){
+                if($(this).height()==70 && $(this).width()==800){
+                    $(this).height(250).width(250);
+                }else{
+                    $(this).height(70).width(800);
+                }
+            });
+            */
+            
+            // 3
+            /*
+            $('body').append('<input type="button" class="izquierdo" value="Aumentar">');
+            $('body').append('<input type="button" class="derecho" value="Encoger">');
+            $('.izquierdo').on('click',function(){
+                 // CSS
+                    //$('div').css({height: ($('div').height()+100), width: ($('div').width()+100)});
+                // ANIMATE
+                    $('div').animate({height: '+=100', width: '+=100'});
+                
+                // HEIGHT Y WIDTH
+                   // $('div').width($('div').width() + 100).height($('div').height() + 100);
+            });
+            $('.derecho').on('click', function(){
+                // CSS
+                    //$('div').css({height: ($('div').height()-50), width: ($('div').width()-50)});
+
+                // ANIMATE
+                    $('div').animate({height: '-=50', width: '-=50'});
+                
+                // HEIGHT Y WIDTH
+                    //$('div').width($('div').width() - 50).height($('div').height() - 50);               
+            });
+            */
+            
+            // 4 
+            /*
+               $('body').append('<input type="button" class="izquierdo" value="Aumentar">');
+                $('body').append('<input type="button" class="derecho" value="Encoger">');
+                var cuanto = prompt('Introduzca los pixeles que quieres aumentar o disminuir');
+                $('.izquierdo').on('click',function(){
+                    $('div').animate({height: '+='+cuanto, width: '+='+cuanto});
+                });          
+                $('.derecho').on('click',function(){
+                    $('div').animate({height: '-='+cuanto, width: '-='+cuanto});
+                });
+            */
+            // 5
+                //$('div').slideUp('fast').slideDown('fast').slideUp('fast');
+            
+            // 6 Con delay
+                //$('div').slideUp(2000).slideDown(2000).slideUp(2000);
+            
+            // 7    Tienes que meterle un callback despues del animate para que se haga despues de la secuenciacion de la animacion.
+            
+               /* $('div').append('Buenos dias');
+                $('body').append('<input type="button" class="izquierdo" value="Mover">');
+                $('input').on('click', function(){
+                    // CSS
+                        $('div').css({left: ($('div').position().left + 100),
+                                     fontSize: parseInt($('div').css('fontSize')) + 40});
+                    // Animate
+                        /*$('div').animate({
+                            left: '+=100',
+                            fontSize: '+=30'
+                        });
+                
+                });
+                */
+            
+            
+        });
+
+    </script>
+	
+</head>
+<body>
+
+    <div></div>
+
+</body>
+</html>

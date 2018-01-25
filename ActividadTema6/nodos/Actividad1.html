@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 1</title>
+        <script type="text/javascript">
+        
+            function cambiarElem(){
+                switch(menu.value){
+                        case("Enlaces"):  cambiarEnlaces();
+                                        break;
+                        case("Parrafos"): cambiarParrafos();
+                                        break;
+                        case("Todos"): cambiarEnlaces(); cambiarParrafos();
+                                        break;
+                    default: console.log("No entra en ningun lado");
+                                        break;
+                }
+                
+            }
+            
+            function cambiarEnlaces(){
+               var enl = document.links;
+                console.log(enl);
+                for(var i = 0; i < enl.length; i++){
+                    enl[i].style.fontSize = "50px";      
+                }
+            }
+            
+            function cambiarParrafos(){
+                var parr = document.getElementsByTagName("p");
+                for(var i =0; i < parr.length; i++){
+                    parr[i].style.backgroundColor = "red";
+                }
+            }
+            
+            window.onload = () =>{
+                menu.onchange = cambiarElem;
+            }
+            
+        </script>
+        
+    </head>
+
+    <body>
+        <p>El párrafo o parágrafo es una unidad, tanto lingüística como formal, <a href="Actividad1.html">de vital importancia para producir</a> e interpretar un texto.</p>
+        <p>Esta unidad organiza el discurso de lo que se dice y, según <a href="Actividad1.html">cómo se lo presente, ayudará a facilitar</a> su comprensión.</p>
+        <p>Formado por <a href="Actividad1.html">frases u oraciones, el párrafo de un texto aborda</a> una sola temática. Tipográficamente, es el componente del texto que comienza en mayúscula y termina en un punto y aparte.</p>
+        <p>En esta entrada hago referencia a los distintos tipos de párrafos desde el <a href="Actividad1.html">punto de la composición; es decir, desde la perspectiva</a> formal del párrafo. No importa qué dicen los párrafos sino cómo lucen, cómo se muestran.</p>
+        <p>Seguro que habrás visto <a href="Actividad1.html">algún texto que comience con</a> “Lorem ipsum dolor sit amet…”. Este texto falso es el que emplean diseñadores y maquetadores para probar si una fuente</p>
+    
+        <select id="menu">
+            <option selected disabled>Selecciona una de las siguientes opciones</option>
+            <option value="Enlaces">Enlaces</option>
+            <option value="Parrafos">Parrafo</option>
+            <option value="Todos">Todo</option>
+        </select>
+    </body>
+    
+    
+    
+</html>

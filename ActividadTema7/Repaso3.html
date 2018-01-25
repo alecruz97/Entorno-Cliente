@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad Repaso 3</title>
+        <style type="text/css">
+            .visto {
+                color: red;
+            }
+            .impar {
+                color: blue;
+            }
+            .oculto {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">   
+        </script>
+        <script type="text/javascript">
+         var anterior;
+          $(document).ready(function(){
+            $('p:odd').addClass('oculto');
+            $('p:even').addClass('impar')
+            $('p:even').on('click', function(){
+            
+                console.log(anterior);
+                console.log($(this));
+                console.log(anterior == $(this));
+                if($(this) != anterior){
+                    $(this).removeClass('impar');
+                    $(this).addClass('visto');
+                    $('p:odd').slideUp();
+                    $(this).next().slideToggle('fast');
+                    anterior = $(this);
+                }
+            }); 
+
+          });
+
+        </script>
+    
+    </head>
+    
+    <body>
+        
+        <h3>LISTADO FAQs <i>Concurso de Traslados del personal docente de Secundaria</i></h3>
+        <p>¿Barema el tiempo como <b>Interino</b>?</p>
+        <p >Si, el tiempo de interino tambien sirve para el baremo</p>
+       
+        <p>¿Que tengo que poner el el campo "<b>Documentacion</b>"?</p>
+        <p >Poner tus datos en el formulario tal y como se te indica</p>     
+        
+        <p>¿Como debo cumplimentar mis peticiciones si ejerzo el derecho preferente a la localidad</p>
+        <p >Para hacer efectivo el derecho preferente a localidad debera marcarlo en el apartado 4 de la solicitud y consignar en el paratado 6, en primer lugar, las peticiones correspondientes a la localidad de la que dimaba el derecho, cumplimentando las caillas correspondientes a la especialidad de estas peticiones, con las siglas DPL. A continuacion podra realizar mas peticiones a otros centros/locales</p>   
+        
+        <p>¿Puedo presentar mi solicitud de participacion en el Registro de la Secretaria de mi centro?</p>
+        <p >Si</p>
+    </body>
+</html>

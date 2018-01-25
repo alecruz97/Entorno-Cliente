@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        function Vehiculo(marca, modelo, color, anyofab){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.color = color;
+            this.anyofab = anyofab;
+       
+        }
+            Vehiculo.prototype.arrancar = function(){
+                document.write("He arrancado");
+            }
+            Vehiculo.prototype.mostrarDatos =  function(){
+                for(i in this){
+                    if(typeof this[i] !== 'function'){
+                    document.write(this[i] + " <br/>");
+                    }
+                }
+            Vehiculo.prototype.acelerar = function(vel){
+                console.log("Acelerando hasta los " + vel + " km/h");
+            }    
+        }
+            
+
+            
+        
+            
+        function Todoterreno(marca, modelo, traccion){
+            Vehiculo.call(this,)
+        }
+            
+        v1 = new Vehiculo("Audi", "A4", "gris", 1995);
+        v2 = new Vehiculo("Volswagen", "Polo", "verde", 2003);
+        v1.mostrarDatos();
+            v1.acelerar(120);
+            v2.arrancar();
+        
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

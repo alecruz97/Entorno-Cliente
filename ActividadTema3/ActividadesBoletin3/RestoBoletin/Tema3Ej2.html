@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+      <script type="text/javascript">
+        function redireccion(){
+          var ale = Math.trunc(Math.random()*3);
+          switch (ale) {
+            case(0):window.open("https://www.hotmail.com","_self","",true);
+                    break;
+            case(1):window.open("https://www.gmail.com","_self","",true);
+                    break;
+            case(2):window.open("https://www.yahoo.com","_self","",true);
+                    break;
+            default:alert("Valor incorrecto");
+                    break;
+
+          }
+        }
+      </script>
+
+  </head>
+
+  <body>
+    <a id="enlace" href="javascript:redireccion()">Enlace</a>
+  </body>
+</html>

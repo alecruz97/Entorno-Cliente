@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            function Producto_Alimenticio(codigo, nombre, precio){
+                this.codigo = codigo;
+                this.nombre = nombre;
+                this.precio = precio;
+                
+                this.imprimeDatos = function() {
+                    return "Codigo: " + this.codigo + ", Nombre: " + this.nombre + ", Precio: " + this.precio + " €/Kg";
+                }
+            }
+            
+                
+                produc1 = new Producto_Alimenticio(1, "Peras", 12.5);
+                produc2 = new Producto_Alimenticio(2, "Mango", 15);
+                produc3 = new Producto_Alimenticio(3, "Manzanas", 1.5);
+                var lista = [produc1,produc2,produc3];
+                for(i in lista){
+                    document.write(lista[i].imprimeDatos() + "<br/>");  
+                }
+             /*
+                 var atr = Object.keys(this);
+                    for(i in atr){
+                        for(a = 0; a < atr.length; a++){
+                            if(typeof this[i] != 'function')){
+                            document.write(atr[a] + "--> " + lista[i][atr[a]] +" ");      
+                            }
+                        }
+                        document.write("<br/>");
+                    }
+            */
+            
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

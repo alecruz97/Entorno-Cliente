@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+
+        <script type="text/javascript">    
+
+            function cambiar(evento){
+                var evento = evento || window.event;
+                this.src = "2.png";
+            }
+            function volver(evento){
+                var evento = evento || window.event;
+                this.src = "1.png";
+            }
+            
+            window.onload = function(){
+                imagen.onmousedown = cambiar;
+                imagen.onmouseup = volver;
+            }
+        </script>
+    </head>
+
+    <body>
+        <img src="1.png" id="imagen" width="100" height="100"/>
+    </body> 
+</html>

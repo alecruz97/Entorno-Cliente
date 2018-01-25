@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            function tecla(evento){
+                var alt = evento.altKey;
+                var shift = evento.shiftKey;
+                var control = evento.ctrlKey;
+                var tecla = evento.key;
+                var cadena = "La tecla ";
+                if(!(alt || shift || control)){
+                    cadena += tecla + " ha sido pulsada sin haber pulsado ni ALT, ni SHIFT, ni CNTRL."; 
+                }else{
+                    cadena += tecla + " ha sido pulsada manteniendo: " + (alt ? " ALT " : "") + 
+                                                                        (shift ? "SHIFT " : "") + 
+                                                                        (control ? "Cntrl." : "");            
+                                                                        
+                }
+                console.log(cadena);
+            }
+            document.onkeypress = tecla;
+            
+        </script>
+    </head>
+
+    <body>
+    </body> 
+</html>

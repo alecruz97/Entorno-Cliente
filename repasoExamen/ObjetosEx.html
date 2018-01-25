@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Objetos repaso</title>
+        <script type="text/javascript">
+
+            function Vehiculo(marca, modelo){
+                
+                this.marca = marca;
+                this.modelo = modelo;
+                
+            }
+            
+            Vehiculo.prototype.arracar = () =>{
+                console.log("He arrancado");
+            }
+            
+            Vehiculo.prototype.mostrarDatos = function(){
+                for(i in this){
+                    if(typeof this[i] !== 'function'){
+                        document.write(this[i] + "<br/>");
+                    }
+                }
+            }
+            
+            function Todoterreno(marca, modelo, peso, capacidad){
+                Vehiculo.call(this, marca, modelo);
+                this.peso = peso;
+                this.capacidad = capacidad;
+                
+            }
+            
+            function Numeros(a,b,c,...d){
+                Vehiculo.call(this, a,b);
+                this.c = c;
+                this.d = d;
+            }
+            
+            
+            Todoterreno.prototype = new Vehiculo();
+            Numeros.prototype = new Vehiculo();
+            
+            var n1 = new Numeros(1,2,3,4,5,6,7,8,3,45);
+                n1.mostrarDatos();
+            
+            var v1 = new Vehiculo("Ford", "focus");
+                v1.arracar();
+                v1.mostrarDatos();
+            
+            var t1 = new Todoterreno("Jeep","Grand Cherokee", 1000,22);
+                t1.mostrarDatos();
+            
+        </script>
+    </head>
+
+    <body>
+        <div id="caja">
+        </div>
+    </body> 
+</html>

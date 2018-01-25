@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            function Persona(nombre,edad,genero){
+                this.nombre = nombre;
+                this.edad = edad;
+                this.genero = genero;
+                
+                this.mostrarDetalles = () => {
+                    for(i in this){
+                        if(typeof this[i]!=='function'){
+                            document.write(i + "--> " + this[i] + "<br/> "); 
+                        }
+                    }
+                    document.write("<br/>");
+                }
+        }
+            function Estudiante(nombre, edad, genero, curso, grupo){
+                Persona.call(this, nombre, edad, genero);
+                
+                this.curso = curso;
+                this.grupo = grupo;
+                
+                this.registrar = () => {
+                    document.write("El estudiante " + this.nombre + " esta asignado al grupo " + this.grupo + " y esta en " + this.curso + "<br/><br/>");
+                }
+            }
+            
+            function Profesor(nombre, edad, genero, asignatura, nivel){
+                Persona.call(this,nombre,edad,genero);
+                
+                this.asignatura = asignatura;
+                this.nivel = nivel;
+                
+                this.asignar = () => {
+                    document.write("El profesor " + this.nombre + " ya está asignado a un grupo. <br/>");
+                }
+                
+                
+            }
+                                           
+            var p1 = new Persona("daniel", 24, "non-binary");
+            p1.mostrarDetalles();
+            Estudiante.prototype = new Persona();
+            var es1 = new Estudiante("Paco", 22, "Hombre", 4, "B");
+            es1.mostrarDetalles();
+            es1.registrar();
+            Profesor.prototype = new Persona();
+            var p1 = new Profesor("Manuela", 34, "Mujer", "Sistemas Operativos", "Tercero");
+            p1.mostrarDetalles();
+            p1.asignar();
+            
+            
+        </script>
+    </head>
+    <body>
+        <p id="parrafo"></p>
+    </body>
+</html>

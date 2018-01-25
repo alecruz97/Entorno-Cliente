@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+      <script type="text/javascript">
+
+        function lanzarDados(){
+          var arrayResult = [0,0,0,0,0,0,0,0,0,0,0];
+
+          for(i=0 ; i<=10 ; i++){
+
+          var valor1 = Math.trunc(Math.random()*6+1);
+          var valor2 = Math.trunc(Math.random()*6+1);
+
+          dado1.value = valor1;
+          dado2.value = valor2;
+          console.log("Dado 1 --> " + valor1 + ", dado 2 --> " + valor2);
+
+          var total = valor1 + valor2;
+
+          arrayResult[total-2] += 1;
+          //alert(total  + "-->" +arrayResult[total-2]);
+
+          }
+          parrafo.innerHTML="";
+
+          for(i=0 ; i < arrayResult.length ; i++) {
+            if(arrayResult[i]>0){
+              document.getElementById("parrafo").innerHTML += "El resultado " + (i+2) + " ha salido " + parseInt(arrayResult[i]) + " veces <br/>";
+            }else{
+
+            }
+          }
+        }
+
+      </script>
+
+  </head>
+
+  <body>
+    <input type="text" id="dado1" size="1"/>
+    <input type="text" id="dado2" size="1" />
+    <input type="button" id="botonLanzar" value="Lanzar" onclick="lanzarDados()"/>
+    <br/>
+    <p id="parrafo"></p>
+
+  </body>
+</html>

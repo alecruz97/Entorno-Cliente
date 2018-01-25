@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Cosas</title>
+        <script type="text/javascript">
+            
+            
+            window.onload = () =>{
+                            
+                var p = document.createElement("p");
+                var txt = document.createTextNode("Contenido de p");
+
+                p.appendChild(txt);
+                document.getElementsByTagName("body")[0].appendChild(p);
+                console.log(p.firstChild.nodeValue);
+                console.log(p.nodeName);
+            }
+        </script>
+    </head>
+
+    <body >
+        
+
+    </body>
+    
+    
+    
+</html>

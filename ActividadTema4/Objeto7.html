@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            function Empleado(nombre = "", departamento = "General"){
+                this.nombre = nombre;
+                this.departamento = departamento;
+             
+                this.mostrar = () => {
+                    for(i in this){
+                        if(typeof this[i] !== "function"){
+                            document.write(i + ": " + this[i] +"<br/>");
+                        }
+                    }
+                    document.write("<br/>");
+                }               
+            }
+            
+            function Director(nombre, departamento, informes = []){
+                Empleado.call(this, nombre, departamento);
+                
+                this.informes = informes;
+            }
+            
+            function Trabajador(nombre, departamento, proyectos = []){
+                Empleado.call(this,nombre,departamento);
+                
+                this.proyectos = proyectos;
+            }
+            
+            function Ingeniero(nombre,  maquina = ""){
+                Empleado.call(this, nombre, "Ingenieria");
+                
+                this.maquina = maquina;
+            }
+            
+            Director.prototype = new Empleado();
+            Trabajador.prototype = new Empleado();
+            Ingeniero.prototype = new Empleado();
+            
+            e1 = new Empleado("Dani","memes");
+            e2 = new Empleado();
+            
+            d1 = new Director("Jose Luis","",[1,3,5]);
+            d2 = new Director();
+            
+            t1 = new Trabajador("Ronaldinho", 29, ["Maquina de spaghettis", "Martillo neumatico"]);
+            t2 = new Trabajador();
+            
+            i1 = new Ingeniero("Pepe Manolo", "Fusiladora");
+            i2 = new Ingeniero()
+            
+            e2.mostrar();
+            e1.mostrar();
+            
+            d1.mostrar();
+            d2.mostrar();
+            
+            t1.mostrar();
+            t2.mostrar();
+            
+            i1.mostrar();
+            i2.mostrar();
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

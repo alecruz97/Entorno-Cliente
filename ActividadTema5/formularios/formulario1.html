@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            function errorDni(){
+                var patt = new RegExp("^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[A-Z]$");
+                var cosa = dni.value;
+                if(patt.test(cosa)){
+                    dni.setCustomValidity("");
+                    pdni.innerHTML = "";
+                }else{
+                    pdni.innerHTML = "Dni Incorrecto";
+                    dni.setCustomValidity("DNI incorrecto");
+                }
+            }
+            
+            function errorNombre(){
+                var patt = new RegExp("^[A-Za-z]+ [A-Za-z]+( [A-Za-z]+| [A-Za-z]+ [A-Za-z]+)?$");
+                var cosa = nombre.value;
+                if(patt.test(cosa)){
+                    nombre.setCustomValidity("");
+                    pnombre.innerHTML = "";
+                }else{
+                    pnombre.innerHTML = "Nombre Incorrecto";
+                    nombre.setCustomValidity("Nombre incorrecto");
+                }
+            }
+
+            function errorNac(){
+                var patt = new RegExp('^([0-9]|[1-2][0-9]|3[0-1]{1})\/([1-9]|1[0-2])\/[0-9]{4}$');
+                var cosa = nac.value;
+                if(patt.test(cosa)){
+                    pnac.innerHTML = "";
+                    nac.setCustomValidity("");
+                }else{
+                    pnac.innerHTML = "Fecha mal introducida";
+                    nac.setCustomValidity("Fecha no introducida correctamente");
+                }
+            }
+            
+            function errorEmail(){
+                var patt = new RegExp('^.*@.*$');
+                var cosa = email.value;
+                if(patt.test(cosa)){
+                    pemail.innerHTML="";
+                    email.setCustomValidity("");
+                }else{
+                    pemail.innerHTML="Email Erroneo";
+                    email.setCustomValidity("Email no escrito correctamente");
+                }
+   
+            }
+            function errorWeb(){
+                var patt = new RegExp('^http:\/\/www\..*\.(com|es)$');
+                var cosa = web.value;
+                if(patt.test(cosa)){
+                    pweb.innerHTML = "";
+                    web.setCustomValidity("");
+                }else{
+                    pweb.innerHTML = "Pagina web erronea";
+                    web.setCustomValidity("Pagina web erronea");
+                }
+            }
+                       
+
+            
+            function contrasenas(){
+                if(contrasena.value === repetirContrasena.value){
+                    precon.innerHTML = "";
+                }else{
+                    console.log(contrasena.value + ", " + repetirContrasena.value);
+                    precon.innerHTML = "Las contraseñas deben coincidir";
+                }
+            }
+            
+            
+            window.onload = function (){
+                dni.onchange = errorDni;
+                nombre.onchange = errorNombre;
+                nac.onchange = errorNac;
+                email.onchange = errorEmail;
+                web.onchange = errorWeb;
+                contrasena.onchange = contrasenas;
+                repetirContrasena.onchange = contrasenas;
+                hijos.onchange = () =>{
+                    if(hijos.value < 0 || hijos.value > 10){
+                        hijos.value = "";
+                        numhijos.innerHTML = "Numero de hijos erroneo."
+                    }else{
+                        numhijos.innerHTML = "";
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body id="body">
+        
+        <form id="formu" >
+        <label>DNI:<input type="text" id="dni" maxlength="12" pattern="^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[A-Z]$" placeholder="XX.XXX.XXX-L" required/><p id="pdni"></p></label>
+        <label>Nombre:<input type="text" id="nombre" maxlength="80" pattern="^[A-Za-z]+ [A-Za-z]+( [A-Za-z]+| [A-Za-z]+ [A-Za-z]+)?$" placeholder="Minimo 2 nombres y/o apellidos" required/><p id="pnombre"></p></label>
+        <label>F. Nac:<input type="text" id="nac" pattern='^([0-9]|[1-2][0-9]|3[0-1]{1})\/([1-9]|1[0-2])\/[0-9]{4}$' placeholder="dd/mm/yyyy" required/></label><p id="pnac"></p>
+        <label>E-mail:<input type="text" id="email" pattern='^.*@.*$' required><p id="pemail"></p></label>
+        <label>Pag. Web:<input type="text" id="web" maxlength="70" pattern='^http:\/\/www\..*\.(com|es)$' required/><p id="pweb"></p></label>
+        <label>Numero de hijos: <input type="number" min="0" max="10" id="hijos" /><p id="numhijos"></p></label>
+        <label>Contraseña:<input type="password" id="contrasena" required/><p id="con"></p></label>
+        <label>Confirmar contraseña:<input type="password" id="repetirContrasena" required/><p id="precon"></p></label>
+        
+        
+        
+        <br/>
+        <input id="enviar" type="submit" value="Validar"/>
+        </form>
+    </body> 
+</html>

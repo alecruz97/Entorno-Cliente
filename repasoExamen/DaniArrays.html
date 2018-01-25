@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 4</title>
+        <script type="text/javascript">
+            
+             window.onload = () => {
+                var numeros = [1,2,3,4,5,6,7,8,9,10];
+                var cur = document.getElementsByTagName("body")[0];
+                for(var i = 0; i < 10; i++){
+                    var tam = numeros.length;
+                    var ale = Math.floor(Math.random()*tam);
+                    var p = document.createElement("p");
+                    p.appendChild(document.createTextNode(numeros[ale]));
+                    numeros.splice(ale, 1);
+                    cur.appendChild(p);
+                }
+            }
+
+        </script>
+    </head>
+
+    <body >
+        
+
+    </body>
+    
+    
+    
+</html>

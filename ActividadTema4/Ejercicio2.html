@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript">
+
+    function obtenerImporteConImpuestos(importe, tipo){
+      var total;
+      tipo = typeof tipo !== "undefined" ? tipo : 1;
+      switch (tipo) {
+        case (1): total = importe*1.21;
+              alert("El importe total es " + total + "(21%)");
+              break;
+        case (2): total = importe*1.1;
+              alert("El importe total es " + total + "(10%)");
+              break;
+        case (3): total = importe*1.05;
+              alert("El importe total es " + total + "(5%)");
+              break;
+        default:alert("Tipo no valido.");
+              break;
+      }
+    }
+
+    obtenerImporteConImpuestos(100,1);
+    obtenerImporteConImpuestos(100,2);
+    obtenerImporteConImpuestos(100,3);
+    obtenerImporteConImpuestos(100);
+    </script>
+
+  </head>
+
+  </body>
+</html>

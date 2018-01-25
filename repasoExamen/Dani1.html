@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Repaso ex 1 dani</title>   
+        <script type="text/javascript">
+            var correctos = [false, false, false, false];
+            var patronNombre = [/[A-ZÑÁÉÍÓÚ][a-zñáéíóú]+/, /((Calle)|(Avenida)) [A-Za-z]+/];
+            
+            
+            function barra(){
+                var contador = 0;
+                for(var i = 0; i < correctos.length; i++){
+                    if(correctos[i]){
+                        contador++;
+                    }
+                }
+                progress.value = contador/correctos.length;
+            }
+            
+            function comprobar(){
+                console.log(this.value);
+                switch(this.name){
+                        case("nombre")    : comprobarNombre(this.value); break;
+                        case("date")      : comprobarFecha(this.value); break;
+                        case("direccion") : comprobarDireccion(this.value); break;
+                        case("pago")      : correctos[3] = true; barra(); break;
+                }
+            }
+            
+            function comprobarNombre(valor){
+                if(patronNombre[0].test(valor)){
+                    correctos[0] = true;
+                    barra();
+                }else{
+                    alert("Nombre no valido");
+                    correctos[0] = false;
+                    barra();
+                }
+            }
+            
+            function comprobarFecha(valor){
+                var fecha = new Date(valor);
+                var actual = new Date();
+                var resta = actual.getFullYear() - fecha.getFullYear();
+                if(resta > 18){
+                    correctos[1] = true;
+                    barra();
+                    console.log("vale");
+                }else{
+                    correctos[1]=false;
+                    barra();
+                    console.log("No vale");
+                }
+            }
+            
+            function comprobarDireccion(valor){
+                if(patronNombre[1].test(valor)){
+                    correctos[2] = true;
+                    barra();
+                   }else{
+                       alert("Direccion no valida");
+                       correctos[2] = false;
+                       barra();
+                   }
+            }
+            
+            function mostrar(e){
+                var hijos = e.target.children;
+                for(var i = 0 ; i < hijos.length; i++){
+                    hijos[i].setAttribute("style", "display: inline;");
+                }
+            }
+            
+            function comprobarEnvio(){
+                var bien = true;
+                for(var i = 0; i < correctos.length; i++){
+                    if(correctos[i]){
+                        
+                    }else{
+                        bien = false;
+                    }
+                }
+                
+                if(bien){
+                    alert("Formulario enviado correctamente");
+                }else{
+                    alert("Hay parametros que no son correctos");
+                }
+            }
+            
+            window.onload = () =>{
+                
+                var fieldsets = document.getElementsByTagName("fieldset");
+                
+                for(var i = 0; i < fieldsets.length; i++){
+                    fieldsets[i].onmouseover = mostrar;
+                    var hijos = fieldsets[i].children;
+                    for(j = 0; j < hijos.length ; j++){
+                        if(hijos[j].tagName != "LEGEND"){
+                            hijos[j].setAttribute("style", "display: none;");
+                        }
+                    }
+                }
+                
+                var inputs = document.getElementsByTagName("input");
+                for(i = 0; i < inputs.length; i++){
+                    inputs[i].onchange = comprobar;
+                }
+                sub.onclick = comprobarEnvio;
+            }
+        </script>
+    </head>
+
+    <body>
+        <form action="#">
+            <label>Progreso de la compra</label><br/>
+            <progress id="progress" value="0"></progress>
+            <br/>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label>Nombre: </label>
+                <input type="text" name="nombre" />
+                <br/>
+                <label>Fecha de nacimiento</label>
+                <input type="date" name="date" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Direccion de envío</legend>
+                <input type="text" name="direccion"/>
+            </fieldset>
+
+            <fieldset>
+                <legend>Forma de pago</legend>
+                <input type="radio" name="pago"/><label>Tarjeta</label>
+                <input type="radio" name="pago"/><label>Contra-reembolso</label>
+            </fieldset>
+            <input type="submit" id="sub"/>
+        </form>
+    </body> 
+</html>

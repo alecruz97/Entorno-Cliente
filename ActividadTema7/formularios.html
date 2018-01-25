@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+
+			label {display: block;}
+			span { color: red;}
+            .bien { background-color: green;}
+            .mal { background-color: red;}
+		</style>        
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+            
+            function comprobar(e){
+               
+                switch(e.target.getAttribute('name')){
+                    case('nombre'): validarNombre($($('label input').get(0)).val()); break;
+                    case('tel'): validarTelefono($($('label input').get(1)).val()); break;
+                    case('cp'): validarCp($($('label input').get(2)).val()); break;
+                    case('email'): validarEmail($($('label input').get(3)).val()); break;
+                    default: console.log('no'); break;
+                }
+            }
+            function validarNombre(valor = $($('label input').get(0)).val()){
+                var patron = /^[A-Z][a-z]+$/;
+                    nombre = $($('label').eq(0));
+                    nombre.find('input').removeClass('mal');
+                    nombre.find('span').remove();
+                if(patron.test(valor)){
+                    nombre.find('input').addClass("bien");
+                }else{
+                    nombre.find('input').removeClass("bien");
+                    nombre.find('input').addClass('mal');
+                    nombre.find('span').remove();
+                    nombre.append('<span> Nombre no valido </span>');
+                }
+            }
+            
+            function validarTelefono(valor = $($('label input').get(1)).val() ){
+                var patron = /^[0-9]{3}-[0-9]{6}$/;
+                tel = $('label').eq(1);
+                tel.find('input').removeClass('mal');
+                tel.find('span').remove();
+                if(patron.test(valor)){
+                    tel.find('input').addClass("bien");
+                }else{
+                    tel.find('input').removeClass("bien");
+                    tel.find('input').addClass('mal');
+                    tel.find('span').remove();
+                    tel.append('<span> Nombre no valido </span>');
+                }
+            }
+            
+            function validarCp(valor = $($('label input').get(2)).val()){
+                var patron = /^[0-9]{5}$/;
+                cp = $('label').eq(2);
+                cp.find('input').removeClass('mal');
+                cp.find('span').remove();
+                if(patron.test(valor)){
+                    cp.find('input').addClass("bien");
+                }else{
+                    cp.find('input').removeClass("bien");
+                    cp.find('input').addClass('mal');
+                    cp.find('span').remove();
+                    cp.append('<span> Nombre no valido </span>');
+                }
+            }
+            
+            function validarEmail(valor = $($('label input').get(3)).val()){
+                var patron = /^[a-z]{3}\@[a-z]{3}\.(es|com)$/;
+                email = $('label').eq(3);
+                email.find('input').removeClass('mal');
+                email.find('span').remove();
+                if(patron.test(valor)){
+                    email.find('input').addClass("bien");
+                }else{
+                    email.find('input').removeClass("bien");
+                    email.find('input').addClass('mal');
+                    email.find('span').remove();
+                    email.append('<span> Nombre no valido </span>');
+                }
+            }
+            
+            function evaluar(e){
+                e.preventDefault();
+                validarNombre();
+                validarTelefono();
+                validarCp();
+                validarEmail();
+                if($('*[class="bien"]').length == 4){
+                    alert("Datos enviados correctamente");
+                }else{
+                    //alert("Datos no enviados");
+                }
+            }
+    
+            $(document).ready(function(){
+               
+                var ins = $('label input');
+                ins.on('blur',comprobar);
+                $('input[type="submit"]').on('click', evaluar);
+            });
+            
+        </script>
+
+
+	</head>
+
+	<body>
+		<h1>Formulario IES Doñana</h1>
+		<form name="formulario" id="f">
+			<label> Nombre:
+				<input type="text" name="nombre" placeholder='Xxxx' />
+			</label>
+			<label>Teléfono:
+				<input type="text" name='tel' placeholder="XXX-XXXXXX"/>
+			</label>		
+			<label> Código postal:
+				<input type="text" name='cp' placeholder='XXXXX'  />
+			</label>
+			<label> Email:
+				<input type="text" name="email" placeholder='xxx@xxxx.xx'/>
+			</label>
+			<input type="submit" name='enviar' value="Enviar"/>
+		</form>
+	</body>
+</html>

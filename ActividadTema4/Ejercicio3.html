@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript">
+
+    var arrayProduc = [0,0,0,0];
+
+    var cuenta = function(importe){
+      for(i = 0; i < arrayProduc.length; i++){
+        switch (i) {
+          case (1): arrayProduc[i] = importe*1.21;
+                    break;
+          case (2): arrayProduc[i] = importe*1.1;
+                    break;
+          case (3): arrayProduc[i] = importe*1.05;
+                    break;
+           default: arrayProduc[i] = "undefined";
+                break;
+        }
+      }
+
+      document.write(arrayProduc);
+    }
+
+    cuenta(100);
+
+    </script>
+
+  </head>
+
+  </body>
+</html>

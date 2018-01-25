@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+      
+    <script type="text/javascript">
+    
+        function abrirColor(){
+            resultado.value ="";
+            var ventana = window.open("tema3ej6ventana.html", "", "width=1000 , height = 1000");
+            
+        }
+    
+    
+    </script>
+      
+  </head>
+  
+  <body >
+    <input type="button" id="boton1" value="nueva ventana" onclick="abrirColor()"/>
+  <br/>
+      <br/>
+      <label>El color en hexadecimal del color elegido en la ventana hija es: 
+        <input type="text" id="resultado" />
+      </label>
+      
+  </body>
+</html>

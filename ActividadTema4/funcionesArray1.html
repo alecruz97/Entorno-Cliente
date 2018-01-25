@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            function menor8(elemento){
+                if (elemento < 8){
+                    return elemento;
+                }
+            }
+
+            }
+            function ej1(){
+                var array1 = new Array(10);
+                for (var i=0; i<array1.length;i++){
+                    array1[i] = Math.trunc(Math.random()*11);
+                }
+                document.write("Array a pelo: " + array1 + "<br/>");
+                
+                var menores8 = array1.filter(menor8);
+                document.write("Array filtrado: " + menores8 + "<br/>");
+                
+                var impares = array1.map(function(x){
+                    if(x%2!=0){
+                        return x = "impar";
+                    }else{
+                        return x;
+                    }
+                });
+                document.write("Array con numeros impares: " + impares + "<br/>");
+
+            }
+            ej1();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

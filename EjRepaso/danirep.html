@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ejercicio Repaso clase</title>
+        <script type="text/javascript">
+
+            var intervalo;
+            var aciertos = 0;
+            function bajarTiempo(){
+                if(tiempo.value == 0){
+                    clearInterval(intervalo);
+                    error();
+                }else{
+                    tiempo.value = tiempo.value-1;
+                }
+            }
+            
+            function evaluar(){
+                clearInterval(intervalo);
+                boton.setAttribute("disabled",true);
+                compP1();
+                compP2();
+                if(aciertos==2){
+                    var vent = document.open("","","width=300, height=300");
+                    vent.document.write("<h1> Aciertos: " + aciertos + "<br/> Tiempo restante: " + tiempo.value + "</h1>");
+                }
+            
+            }
+            
+            function compP1(){
+                var nums = [];
+                var inputs = document.getElementsByName("num");
+                
+                for(var i = 0; i < inputs.length-1; i++){
+                    nums.push(inputs[i].value);
+                }
+                var mayor = Math.max(...nums);
+                if(Math.max(mayor==num4.value)){
+                    aciertos++;
+                }else{
+                    
+                }
+            }
+            
+            function compP2(){
+                if(fecha1.value==fecha2.value){
+                    aciertos++;
+                }
+            }
+            
+            function error(){
+                boton.setAttribute("disabled",true);
+                var hija = window.open("","","width=300, height=100, top=1000, left=1500");
+                hija.document.write("<h1>LA BOMBA REVENTO</h1>");
+            }
+            
+            window.onload = () =>{
+                
+                var numeros = document.getElementsByName("num");
+                for(var i = 0; i < numeros.length-1; i++){
+                    numeros[i].value = Math.floor(Math.random()*100+1);
+                    numeros[i].setAttribute("readonly",true);
+                }
+                
+                fecha1.value = Math.floor(Math.random()*50+1950);
+                tiempo.value=60;
+                intervalo = setInterval(bajarTiempo, 1000);
+                boton.addEventListener("click",evaluar);
+            }
+            
+            
+        </script>
+    </head>
+
+    <body >
+
+        <h1>QUIZ DOÑANA</h1>
+        <form action="#">
+            <label>Pregunta 1: ¿Cual es el numero mayor?</label>
+            <input type="text" id="num1" name="num"/>
+            <input type="text" id="num2" name="num" />
+            <input type="text" id="num3" name="num"/>
+            <input type="text" id="num4" name="num" />
+            <br/><br/>
+            <label>Pregunta 2: ¿Cuántas horas han pasado?</label>
+            <input type="text" id="fecha1" name="fecha" />
+            <input type="text" id="fecha2" name="fecha" />
+            <br/><br/>
+            <label>Tiempo</label>
+            <input type="text" id="tiempo"/>
+            <br/><br/>
+            <input type="button" id="boton" value="Contestar"/>
+        </form>
+        
+    
+    </body>
+</html>

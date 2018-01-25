@@ -1,0 +1,122 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	
+		p + ul {
+			display: none;
+		}
+	
+		.fondo{background-color: grey}
+
+	</style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+           
+            // 1
+                /*var total = $('ul:first li:not(:empty)').length + $('ul:eq(1) .azul').length;
+                alert("Hay " + total + " cursos en el ciclo");
+            */
+            // 2
+                /*function desplegar(event){
+                    $(this).next().fadeToggle(2000);
+                }
+                $('p').hover(desplegar, desplegar);
+            */
+            // 3
+               /*$(document).on("keydown",function(e){
+                    if(e.keyCode == 40){
+                        $('p').next().slideDown('fast');
+                    }
+                        if(e.keyCode ==    38){
+                        $('p').next().slideUp('fast');
+                    }
+                });
+            */
+            //  4
+                $(document).one("keydown", function(e){ //$document.one hace lo mismo
+                    if(e.keyCode == 40){
+                        $('p').next().slideToggle();
+                        //6 
+                       // $(document).unbind('keydown');
+                    }
+                });           
+            // 5
+                //$(document).off('keydown');
+            // 7 
+               /* $('li.azul').hover(
+                function(e){
+                    console.log($(this).parent().data('hours'));
+                    $(this).append('<div><span>' + $(this).parent().data('hours') + " horas </span></div>");
+                    $(this).find('div').css({"display":"block", "position":"absolute", "left":e.clientX, "top":e.clientY, "background-color":'red'});
+
+                },
+                function(){
+                    $(this).find('div').remove();
+                });
+            */
+            // 8
+            
+                $('li.azul').on('click', // $('ul).on('click', .azul, function (e)) toda la pesca 
+                    function(e){
+                        console.log("s");
+                    $(this).append('<div><span> ' + $(this).parent().data('hours') + 
+                                   //9
+                                   ' horas (presencial) </span></div>');
+                    $(this).find('div').css({"display":"block", "position":"absolute", "left":e.clientX, "top":e.clientY, "background-color":'red'});      
+                });
+            
+            
+            
+        }); 
+    
+    </script>
+	
+</head>
+<body>
+	<p>Primero</p>
+	<ul>
+		
+		<li>Base de Datos</li>
+		<li>Lenguajes de Marcas</li>
+		<li></li>
+	</ul>
+
+	<p>Segundo</p>
+	<ul>
+		<li >DWESE
+			<ul data-hours='10'>
+				<li class='azul' >Desarrollo Web en Entorno Servidor</li>
+				
+			</ul>
+		</li>
+		<li>DWECL
+			<ul data-hours='7'>
+				<li class='azul'>Desarrollo Web en Entorno Cliente</li>
+				
+			</ul>
+		</li>
+		<li>DAW
+			<ul data-hours='3'>
+				<li class='azul'>Despliegue de Aplicaciones Web</li>
+				
+			</ul>
+		</li>
+		<li>DIWEB
+			<ul data-hours='6'>
+				<li class='azul'>Diseño de Interfaces Web</li>
+				
+			</ul>
+		</li>
+		<li>EIE
+			<ul data-hours='4'>
+				<li class='azul'>Entorno e Iniciativa Empresarial</li>
+				
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

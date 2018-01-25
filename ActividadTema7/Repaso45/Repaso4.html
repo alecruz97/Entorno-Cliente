@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad Repaso 4</title>
+        <style type="text/css">
+            img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            div {
+                position: relative;
+                top: 40%;
+                left: 20%;
+                float: left;
+                width: 200px;
+                height: 200px;
+            }
+            
+            .sele {
+                border: solid blue 1px;
+                
+            }
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">   
+        </script>
+        <script type="text/javascript">
+                
+            
+            
+            $(document).ready(function(){
+                $('div').on('click', function(){
+                    console.log("entra");
+                    $('div').css({opacity: 0.4});
+                    $('div').removeClass('sele');
+                    $(this).toggleClass('sele');
+                    $(this).css({opacity:1});
+                });
+            });
+
+        </script>
+    
+    </head>
+    
+    <body>
+        
+        <div><img src="foto1.jpg"/></div>
+        <div><img src="foto2.jpg"/></div>
+        <div><img src="foto3.jpg"/></div>
+        <div><img src="foto4.jpg"/></div>
+
+    </body>
+</html>

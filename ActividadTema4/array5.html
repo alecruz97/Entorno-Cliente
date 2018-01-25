@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            function generarNums(){
+                var arraynums = new Array(10);
+                for(i=0;i<arraynums.length;i++){
+                    arraynums[i] = Math.trunc(Math.random()*1001);
+                }
+                document.write(arraynums + "<br/>");
+               
+                arraynums.sacarPrimUlt();
+
+                document.write("<br/>" + arraynums + "<br/>");
+
+            }
+                /* var mayor=arraynums[0];
+                var posMayor;
+                for(i=1; i<arraynums.length;i++){
+                    if(arraynums[i]>mayor){
+                        mayor = arraynums[i];
+                        posMayor = i;
+                    }
+                }
+                arraynums.splice(posMayor,1);
+                
+                var menor=arraynums[0];
+                var posMenor;    
+                for(i=1; i<arraynums.length;i++){
+                    if(arraynums[i]<menor){
+                        menor = arraynums[i];
+                        posMenor = i;
+                    }
+                }
+                arraynums.splice(posMenor,1);
+                
+                document.write("El elemento mayor es: " + mayor + "<br/>");
+                document.write("El elemento menor es: " + menor + "<br/>");
+                document.write("El array final es: " + arraynums);
+            }*/
+            Array.prototype.sacarPrimUlt = function(){
+                this.shift();
+                this.pop();
+            }
+            //arraynums.sort((a,b) => a - b); Para ordenar arrays de mayor a menor
+            generarNums();
+            
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

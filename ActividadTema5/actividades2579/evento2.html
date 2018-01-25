@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div {
+             width : 100px;
+             height : 100px;
+             background-color : blueviolet;
+             position: absolute;
+            }
+        </style>
+        <script type="text/javascript">
+                var arriba = 0;
+                var izquierda = 0;
+            function mostrar(event){
+ 
+                switch(event.keyCode){
+                        case(38): case(104): caja.style.top = (arriba -= 10 ) + "px"; break;
+                        case(40): case(98) : caja.style.top = (arriba += 10 ) + "px"; break;
+                        case(39): case(102): caja.style.left = (izquierda += 10) + "px"; break;
+                        case(37): case(100): caja.style.left = (izquierda -= 10) + "px"; break;
+                }
+            }
+            
+        document.onkeydown = mostrar;
+        </script>
+    </head>
+
+    <body>
+        <div id="caja">
+        </div>
+    </body> 
+</html>

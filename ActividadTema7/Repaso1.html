@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad Repaso 1</title>
+        <style type="text/css">
+
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">                $('body').append(salvar);
+                $('body').append(salvar);
+                $('body').append(salvar);
+        </script>
+        <script type="text/javascript">
+            
+            var salvar;
+            
+            $(document).ready(function(){
+                $('body').append('<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li> <li>Item 4</li></ul>')
+           
+            
+                //A Eliminar la lista
+                    salvar = $('ul');
+                    $('ul').remove();
+            
+                //B Restaurar lista
+                    $('body').append(salvar);
+                
+                //C Añadir un elemento al final de la lista
+                    $('ul').append("<li>Nuevo elemento al final </li>");
+            
+                //D Añadir un elemento al principio de la lista
+                    $('ul').prepend('<li>Elemento inicial de la lista</li>');
+                
+                //E Eliminar el ultimo elemento
+                    //$('li').remove('li:last');
+                
+                //F Eliminar el primer elemento
+                    //$('li').remove('li:first');
+                
+                //G Eliminar el primero y el segundo
+                    //$('li').remove('li:first, li:nth-child(2)');
+                
+                //H Eliminar los dos ultimos
+                    var penultimo = $('li').length-1;
+                    $('li').remove('li:last, li:nth-child('+penultimo+')');
+                
+                
+            });
+
+        </script>
+    
+    </head>
+    
+    <body>
+
+    </body>
+</html>

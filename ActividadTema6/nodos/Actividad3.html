@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 3</title>
+        <script type="text/javascript">
+
+            
+            function anadir(){
+                var txt = document.createTextNode(meter.value);
+                var cachoLista = document.createElement("li");
+                cachoLista.appendChild(txt);
+                lista.appendChild(cachoLista);
+            }
+            
+            function deletear(){
+                var listas = document.getElementsByTagName("li");
+                    
+                }
+            }
+            
+            function clonacion(){
+                var last = document.getElementsByTagName("li")[document.getElementsByTagName("li").length-1];
+                var clon  = last.cloneNode(true);
+                lista.appendChild(clon);
+                
+            }
+            window.onload = () => {
+                banadir.onclick= anadir;
+                borrar.onclick = deletear;
+                clonar.onclick = clonacion;
+            }
+            
+        </script>
+
+    </head>
+
+    <body>
+        <label>¿Elemento a insertar?<input type="text" id="meter"/></label>
+        <input type="button" value="Anadir" id="banadir" />
+        <input type="button" value="Borrar nodos vacios" id="borrar"/>
+        <input type="button" value="Clonar ultimo nodo" id="clonar" />
+
+        <div >
+            <ul id="lista">
+            </ul>
+        </div>
+
+    </body>
+    
+    
+    
+</html>

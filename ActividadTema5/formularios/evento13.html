@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var dias = new Set;
+            
+            function colorear(evento){
+                body.style.backgroundColor = this.value;
+            }
+            
+            function dia(){
+                if(dias.has(this.value)){
+                    dias.delete(this.value);
+                }else{
+                    dias.add(this.value);
+                }
+                
+                var arraydias = Array.from(dias);
+            
+                var fin = arraydias[arraydias.length-1];
+                switch(fin){
+                    case("Lunes"): diapref.selectedIndex = 0;
+                                       break;           
+                    case("Martes"): diapref.selectedIndex = 1;
+                                       break;
+                    case("Miercoles"): diapref.selectedIndex = 2;
+                                       break;
+                    case("Jueves"): diapref.selectedIndex = 3;
+                                       break;
+                    case("Viernes"): diapref.selectedIndex = 4;
+                                       break;
+                    default: diapref.selectedIndex = 0;
+                             break;
+                }
+            }
+            
+      
+            //Generalizar
+            window.onload = function inicialize(){
+                color1.onclick = colorear;
+                color2.onclick = colorear;
+                color3.onclick = colorear;
+                lunes.onclick = dia;
+                martes.onclick = dia;
+                miercoles.onclick = dia;
+                jueves.onclick = dia;
+                viernes.onclick = dia;
+                }
+            
+            
+            
+        </script>
+    </head>
+
+    <body id="body">
+        
+        <form>
+            
+            <label>Elige un color:</label><br/>
+                <label><input id="color1" type="radio" name="color" value="red"/>Rojo</label><br/>
+                <label><input id="color2" type="radio" name="color" value="green"/>Verde</label><br/>
+                <label><input id="color3" type="radio" name="color" value="blue"/>Azul</label><br/>
+        
+            <br/><br/><br/>
+            
+            <label>Selecciona los dias con disponibilidad: </label><br/>
+            <label><input type="checkbox" id="lunes" value="Lunes"/>Lunes</label><br/>
+            <label><input type="checkbox" id="martes" value="Martes"/>Martes</label><br/>
+            <label><input type="checkbox" id="miercoles" value="Miercoles"/>Miercoles</label><br/>
+            <label><input type="checkbox" id="jueves" value="Jueves"/>Jueves</label><br/>
+            <label><input type="checkbox" id="viernes" value="Viernes"/>Viernes</label><br/>
+            
+            <br/><br/>
+            <label>Selecciona el dia preferente: </label>
+            <select id="diapref">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles" >Miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+            </select>
+            <br/><br/>
+            
+            <input type="submit" value="Haz click para enviar informacion"/>
+            <input type="reset" id="reset" value="Comenzar a rellenar de nuevo" />
+            
+            
+        </form>
+        
+    </body> 
+</html>

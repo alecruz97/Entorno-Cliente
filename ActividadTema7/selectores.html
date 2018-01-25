@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+        //Apartado a
+         // $("ul:first li").css({color:'green'});
+         // $("ul:first").find("li").css({color:'red'}); 
+         
+        //Apartado b
+          //$("ul:first > li:nth-child(3)").css({color:'orange'});
+          //$("ul li:contains('Sistemas Informaticos')").css({color:'yellow'});
+        
+         //Apartado c
+            //$("ul:first > li:contains('Sistemas Informaticos')").next().css({color: 'purple'});
+            //$("ul:first > li:nth-child(3)").next().css({color:'green'});
+         
+       //Apartado d
+            //$("ul:first > li:gt(2)").css({color:'pink'});
+            //$("ul:first > li:not(:lt(3))").css({color: 'red'});
+         
+        //Apartado e
+            //$("*[href]").css({color:'red'});
+            // Este esta mal $("*.attr('href')").css({color: 'red'});
+         
+         //Apartado f 
+            //$("a:not([href])").css({color:"red"});
+            //
+     
+        //Apartado g
+            //$("ul li a[href*='mod']").css({color: 'red'});
+            //$("ul li").find("a[href*='mod']").css({color: 'red'});
+         //Apartado h
+            //$("ul li a[href^='mod']").css({color: 'red'});
+            //$("ul li").find("a[href^='mod']").css({color: 'red'});
+            
+         //Apartado i
+             //$("ul li a[href$='.html']").css({color: 'red'});
+            // $("ul li ").find("a[href$='.html']").css({color: 'red'});
+        //Apartado j
+         //$("ul li ul li:contains('horas')").css({color: 'red'});
+         //$("ul li ul").find("li:contains('horas')").css({color: 'red'});
+        //Apartado k
+          //$("*:empty").text("Nodo vacio");
+        
+        //Apartado l
+          // $("ul li:contains('DWESE'), li:contains('DAW'), li:contains('EIE')").css({color: "red"});
+          //     $("ul").find('li:contains("DWESE")').css({color: "red"});
+            // $("ul").find('li:contains("DAW")').css({color: 'red'});
+            // $("ul").find('li:contains("EIE")').css({color: 'red'});
+     
+        //Apartado m
+         //$('ul:first > li:last').prev().attr('href','fol.html');
+     
+     
+     });
+    
+    </script>
+</head>
+
+<body>
+	<p>Primero</p>
+	<ul>
+		<li><a href="#">Programación</a></li>
+		<li><a href="modBD.html">Base de Datos</a></li>
+		<li><a href="SImod.html">Sistemas Informaticos</a></li>
+		<li><a href="mod-LM.html">Lenguajes de Marcas</a></li>
+		<li><a>Formación y Orientación Laboral</a></li>
+		<li></li>
+	</ul>
+
+	<p>Segundo</p>
+	<ul>
+		<li>DWESE
+			<ul>
+				<li>Desarrollo Web en Entorno Servidor</li>
+				<li>10 horas</li>		
+			</ul>
+		</li>
+		<li>DWECL
+			<ul>
+				<li>Desarrollo Web en Entorno Cliente</li>
+				<li>7 horas</li>		
+			</ul>
+		</li>
+		<li>DAW
+			<ul>
+				<li>Despliegue de Aplicaciones Web</li>
+				<li>3 horas</li>		
+			</ul>
+		</li>
+		<li>DIWEB
+			<ul>
+				<li>Diseño de Interfaces Web</li>
+				<li>6 horas</li>		
+			</ul>
+		</li>
+		<li>EIE
+			<ul>
+				<li>Entorno e Iniciativa Empresarial</li>
+				<li>4 horas</li>		
+			</ul>
+		</li>
+	</ul>		
+</body>
+</html>

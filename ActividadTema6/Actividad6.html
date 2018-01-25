@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 6</title>
+        <style type="text/css">
+            #div1, #div2 {
+                 float: left;
+                 width : 100px;
+                 height : 100px;
+                 background-color : grey;
+                 margin-left: 15px;
+                
+            }
+            #resultado {
+                float: left;
+                 margin-top: 150px;
+                 width : 100px;
+                 height : 100px;
+                 background-color : grey;
+                 margin-left: 15px;
+            }
+            p {
+                position: absolute;
+                align-self: auto;
+                font-size: 50;
+                text-align: center;
+            }
+        </style>
+
+        <script type="text/javascript">
+            
+            function generar(){
+                
+                var ps = document.getElementsByTagName("p");
+  
+                for(var i = 0 ; i < ps.length -1 ; i++){
+                    if(ps[i].hasChildNodes()){
+                         var txt = document.createTextNode(Math.floor(Math.random()*10+1));
+                        ps[i].replaceChild(txt, ps[i].childNodes[0]);
+                    }else{
+                        var txt = document.createTextNode(Math.floor(Math.random()*10+1));
+                       ps[i].appendChild(txt);
+                    }
+                }
+            }
+                                
+                
+            function comp(){
+                var nums = [];
+                var pos;
+                var ps = document.getElementsByTagName("p");
+                console.log(ps);
+                for(var i = 0; i < ps.length -1 ; i++){
+                    nums.push(ps[i].childNodes[0].nodeValue);
+                }
+                console.log(nums);
+                var txt = document.createTextNode(Math.max(...nums));
+                if(p3.hasChildNodes()){
+                    txt = document.createTextNode(Math.max(p3.childNodes[0].nodeValue ,...nums));
+                    p3.replaceChild(txt, p3.childNodes[0]);
+                }else{
+                    p3.appendChild(txt);
+                }
+                console.log(txt);
+            }
+
+            
+            
+            window.onload = () => {
+                comparar.addEventListener("click", comp);
+                boton.addEventListener("click", generar);
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        
+        <div id="div1">
+            <p id="p1"></p>
+        </div>
+        
+        <div id="div2">
+            <p id="p2"></p>
+        </div>
+            
+        <div id="resultado">
+            <p id="p3"></p>
+        </div>
+        <input id="comparar" type="button" value="comparar"/>
+        <input id="boton" type="button" value="generar"/>
+
+    </body>
+    
+    
+    
+</html>

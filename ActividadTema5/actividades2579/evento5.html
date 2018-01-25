@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div {
+             width : 100px;
+             height : 100px;
+             background-color : blueviolet;
+             position: absolute;
+            }
+        </style>
+        <script type="text/javascript">
+            
+            function colorear(evento){
+                console.log(evento.type);
+                switch(evento.type){
+                    case("keypress"): mensaje.style.backgroundColor = "#CCE6FF";
+                                    break;
+                    case("mousemove"): mensaje.style.backgroundColor = "#FFFFFF";
+                                    break;
+                    case("click"): mensaje.style.backgroundColor = "#FFFF00";
+                                    break;
+                   
+                    }
+                }
+
+            window.onload = function(){
+                document.onclick = colorear;
+                document.onkeypress = colorear;
+                document.onmousemove = colorear;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="mensaje"></div>
+    </body> 
+</html>

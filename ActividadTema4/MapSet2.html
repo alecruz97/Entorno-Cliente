@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            function Modulo(nombre, duracion){
+                this.nombre = nombre;
+                this.duracion = duracion;
+            }
+            
+            var m1 = new Modulo("DAW", 150);
+            var m2 = new Modulo("DIW", 240);
+            var m3 = new Modulo("DWECL", 250);
+            var m4 = new Modulo("DWESE", 300);
+
+            var clase = new WeakMap();
+            //Weakmap ---> Cuando LA CLAVE son objetos.
+            clase.set(m1, 20);
+            clase.set(m2, 30);
+            clase.set(m3, 28);
+            clase.set(m4, 24);
+
+            var alumno = new WeakSet();
+            
+            alumno.add(m1);
+            alumno.add(m2);
+            alumno.add(m3);
+            alumno.add(m4);
+            
+            document.write("¿El alumno tiene aprobado DWESE? <br/>");
+            document.write(alumno.has(m4)? "Si<br/>": "No<br/> ");
+            
+            
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title> Cookies </title>
+
+        <script src="jquery-3.2.1.min.js"></script>
+        <script src="carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+
+        <script type="text/javascript">
+
+            function preparar(){
+                $('#hacer').on('click', function(){
+                var entrada = prompt('Introduzca lo que quieres que se guarde en la cookie');
+                    switch(entrada.toLowerCase()){
+                        case('nombre'): $.cookie('nombre', $('input[type="text"]').first().val()); break;
+                        case('dni'): $.cookie('dni', $('input[type="text"]').last().val()); break;
+                        default: alert('El valor que has introducido no es valido');
+                    }
+                });
+
+                $('#ver').on('click', function(){
+                    var entrada = prompt('Introduzca el nombre de la cookie que quieres ver').toLowerCase();
+                    if($.cookie(entrada) == undefined){
+                        alert('Nombre de cookie no valida o no existe');
+                    }else{
+                        alert($.cookie(entrada));
+                    }
+                });
+
+                $('#vertodas').on('click', function(){
+                    console.log($.cookie());
+                    for(i in $.cookie()){
+                        alert(i + " --> " + $.cookie(i));
+                    }
+                });
+
+                $('#borrar').on('click', function(){
+                    var entrada = prompt('Introduzca el nombre de la cookie que quieres borrar').toLowerCase();
+                    if($.removeCookie(entrada) == true){
+                        alert("Cookie borrada correctamente");
+                    }else{
+                        alert("Cookie no encontrada")
+                    }
+                });
+
+                $('#borrarTodas').on('click', function(){
+                    for(i in $.cookie()){
+                        $.removeCookie(i);
+                    }
+                    alert("Todas las cookies han sido borradas correctamente");
+                });
+            }
+
+            $(document).ready(function(){
+                preparar();
+            });
+
+        </script>
+    </head>
+
+    <body>
+        <label>Nombre:<input type="text"></label>
+        </br>
+        <label>Dni:<input type="text"></label>
+        </br></br>
+        <input type="button" id="hacer" value="Hacer cookie">
+        <input type="button" id="ver" value="Ver cookie">
+        <input type="button" id="vertodas" value="Ver todas las cookies">
+        <input type="button" id="borrar" value="Borrar cookie">
+        <input type="button" id="borrarTodas" value="Borrar todas las cookies">
+    </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+      <script type="text/javascript">
+        var numero = 0;
+        var arraIma = ["gato.jpg","perro.jpg","periquito.jpg","nutria.jpg"];
+
+          function imagenes(){
+            fotos.src = arraIma[(numero++)%(arraIma.length)];
+          }
+
+
+          var intervalo = setInterval(imagenes,1000);
+      </script>
+
+  </head>
+
+  <body>
+    <img src="" id="fotos" width="300" height="300"/>
+
+  </body>
+</html>

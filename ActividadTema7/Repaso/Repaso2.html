@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad Repaso 2</title>
+        <style type="text/css">
+
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">   
+        </script>
+        <script type="text/javascript">
+                
+            
+            // ATTR solo dara atributos del elemento html y prop de las propiedades del DOM
+            
+            $(document).ready(function(){
+             $('input').on('click', function(){
+                console.log($(this).prop('checked')); 
+                console.log($(this).attr('checked'));
+                console.log($(this).prop('title')); 
+                console.log($(this).attr('title'));
+             });
+            });
+
+        </script>
+    
+    </head>
+    
+    <body>
+        
+        <label>Prueba<input type="checkbox" title="Comprobado" /></label>
+
+    </body>
+</html>

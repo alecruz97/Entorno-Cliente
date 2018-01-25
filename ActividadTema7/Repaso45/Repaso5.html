@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad Repaso 5</title>
+        <style type="text/css">
+            div {
+                position: relative;
+                top: 40%;
+                left: 35%;
+                float: left;
+                align-self: center;
+                border: solid 1px;
+                width: 100px;
+                height: 100px;
+                font-size: 30px;
+                text-align: center;
+            }
+            
+            .mal {
+                opacity: 0;
+            }
+            
+            .bien {
+                opacity: 1;
+            }
+            
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">   
+        </script>
+        <script type="text/javascript">
+            
+            var anterior;
+
+            function preparar(){
+                $('div p').removeClass('bien');
+                $('div').find('p').addClass('mal');
+                $('div').on('dblclick', seleccionar);
+            }    
+            
+            function comprobarVictoria(){
+                if($('.bien').length == 4){
+                    alert("Enhorabuena, has ganado");
+                }
+            }
+            
+            function seleccionar(){
+                $(this).find('p').removeClass('mal');
+                $(this).find('p').addClass('bien');
+                
+                var actual = $(this).find('p').text();
+
+                $(this).unbind('dblclick');
+                
+                if(anterior == undefined){
+                    anterior = actual;
+                
+                }else{
+                    if(actual == anterior){
+                        anterior = undefined;
+                        console.log($('.bien').length);
+                        comprobarVictoria();
+                    
+                    }else if(actual != anterior){
+                        console.log("Error");
+                        anterior = undefined;
+                        preparar();
+                    }
+                }
+            }
+            
+            $(document).ready(function(){
+                preparar();
+            });
+
+        </script>
+    
+    </head>
+    
+    <body>
+        
+        <div><p>1</p></div>
+        <div><p>2</p></div>
+        <div><p>1</p></div>
+        <div><p>2</p></div>
+    </body>
+</html>

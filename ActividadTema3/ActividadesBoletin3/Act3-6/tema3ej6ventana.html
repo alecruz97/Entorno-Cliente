@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    
+      <script type="text/javascript">
+        
+          function enviar(){
+                window.opener.resultado.value = ident.value;
+                window.opener.document.body.style.backgroundColor = ident.value;
+          }
+        
+      </script>
+      
+  </head>
+  
+  <body>
+        <p>ventan nueva</p>
+   <form action="enviar()">
+       <label>Introduzca el color.<input type="color" id="ident"/></label>
+    <br/>
+    <br/>
+       <input type="button" id="botonColor" value="Aceptar" onclick="enviar();" />
+        
+   </form>
+  </body>
+</html>

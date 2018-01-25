@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            class Empleado{
+                constructor(nombre = "", departamento = "General"){
+                    this._nombre = nombre;
+                    this._departamento = departamento;
+                }
+                get nombre(){
+                    return this._nombre;
+                }
+                set nombre(nombre){
+                    this._nombre = nombre;
+                }
+                get departamento(){
+                    return this._departamento;
+                }
+                set departamento(departamento){
+                    this._departamento = departamento;
+                }
+                
+                get cosas(){
+                    for(var i in this){
+                        document.write(i.replace("_","") + " --> " + this[i] + "<br/>");
+                    }
+                    document.write("<br/>---------------<br/>");
+                }
+            }
+            
+            class Director extends Empleado{
+                constructor(nombre,departamento,informes =[]){
+                    super(nombre,departamento);
+                    this._informes = informes;
+                }
+                 
+                get informes(){
+                    return this._informes;
+                }
+                set informes(informes){
+                    this._informes = informes;
+                }
+                
+            }
+            
+            class Trabajador extends Empleado{
+                constructor(nombre, departamento, proyectos=[]){
+                    super(nombre,departamento);
+                    this._proyectos = proyectos;
+                }
+                
+                get proyectos(){
+                    return this._proyectos;
+                }
+                set proyectos(proyectos){
+                    this._proyectos = proyectos;
+                }
+            }
+            
+            class Ingeniero extends Trabajador{
+                constructor(nombre,proyectos,maquina=""){
+                    super(nombre,"Ingenieria",proyectos);
+                    this._maquina = maquina;
+                }
+                get maquina(){
+                    return this._maquina;
+                }
+                set maquina(maquina){
+                    this._maquina = maquina;
+                }
+            }
+            
+                e1 = new Empleado("Paco","Informatica");
+            
+                d1 = new Director("Jose Carlos","Marketing",[1,2,3]);
+                d2 = new Director();
+                d1.informes = [];
+                d1.cosas;
+                d2.cosas;
+            
+                t1 = new Trabajador("Daniel", "Gestion", ["Reparador","Atornilladora"]);
+                t1.cosas;
+            
+                i1 = new Ingeniero("Paula",[1,2],"Restauradora");
+                i1.maquina = "Restituidora";
+                i1.cosas;
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

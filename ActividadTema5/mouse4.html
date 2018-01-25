@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+
+        <script type="text/javascript">    
+            
+            function mostrarUrl(evento){
+                var evento = evento || window.event;
+                console.log(this.src);
+            }
+            window.onload = function(){
+                dog.onmouseover = mostrarUrl;
+                cat.onmouseover = mostrarUrl;
+            }
+        </script>
+    </head>
+
+    <body>
+        <img src="perros.jpg" id="dog" width="200" height="200"/>
+        <img src="gatos.jpg" id="cat" width="200" height="200"/>
+    </body> 
+</html>

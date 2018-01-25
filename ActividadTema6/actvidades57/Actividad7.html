@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 7</title>
+        <script type="text/javascript">
+            
+            function borrarFila(){
+                var i = prompt("Introduzca la fila que quiere eliminar (del 1 al numero de filas.)");
+                if(!(i < 1 || i > document.getElementsByTagName("table")[0].rows.length)){
+                    document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].removeChild(document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].rows[i-1]);
+                }else{
+                    alert("La fila seleccionada no se encuentra displonible");
+                }
+            }
+            
+            function rellenar(){
+                var base = document.getElementsByTagName("table")[0];
+                for(var i = 0; i < base.rows.length; i++){
+                    for(var j = 0; j < base.rows[i].cells.length; j++){
+                        var x = prompt("rows --> " + (i+1) + " colums --> " + (j+1));
+                        if(!(base.rows[i].cells[j].hasChildNodes())){
+                            base.rows[i].cells[j].appendChild(document.createTextNode(x));
+                        }else{
+                            base.rows[i].cells[j].replaceChild(document.createTextNode(x), base.rows[i].cells[j].firstChild);
+                        }
+                    }
+                }
+            }
+            
+            function pinchar(e){
+                var txt = prompt("Introduzca lo nuevo");
+                txt = document.createTextNode(txt);
+                var td = document.createElement("td");
+                td.appendChild(txt);
+                e.target.parentNode.replaceChild(td, e.target);
+            }
+            
+            function insertar(){
+                var fila = document.createElement("tr");
+                for(var i = 0; i < document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].rows[0].cells.length; i++){
+                    var celda = document.createElement("td");
+                    fila.appendChild(celda);
+                }
+                
+                document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].appendChild(fila);
+            }
+            
+            function crearTabla(){
+                var filas = prompt("Introduzca el numero de filas.");
+                var columnas = prompt("Introduzca el numero de columnas.");
+                
+                var tabla = document.createElement("table");
+                var tbody = document.createElement("tbody");
+                    tabla.appendChild(tbody);
+                for(var i = 0; i < filas; i++){
+                    var fila = document.createElement("tr");
+                    for(var j = 0 ; j < columnas; j++){
+                        fila.appendChild(document.createElement("td"));
+                    }
+                    tbody.appendChild(fila);
+                }
+                tabla.setAttribute("border", 1);
+                body.insertBefore(tabla, boton);
+                document.getElementsByTagName("table")[0].addEventListener("click", pinchar);
+            }
+            
+            window.onload = () =>{
+                boton.addEventListener("click", rellenar);
+                borrar.addEventListener("click", borrarFila);
+                meter.addEventListener("click", insertar);
+               // document.addEventListener("click", pinchar);
+                crearTabla();
+            }
+            
+        </script>
+    </head>
+
+    <body id="body">
+            
+        <input type="button" id="boton" value="Rellenar"/>
+        <input type="button" id="borrar" value="Borrar Fila" />
+        <input type="button" id="meter" value="Insertar nueva fila"/>
+
+
+    </body>
+    
+    
+    
+</html>

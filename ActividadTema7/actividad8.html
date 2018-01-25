@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 8</title>
+        <style type="text/css">
+            .cajon {
+                position: absolute;
+                height: 400px;
+                width: 400px;
+                border-left: 2px dashed red;
+                border-bottom: 2px dashed pink;
+                border-right: 2px dashed purple;
+            }
+            .caja {
+                position: absolute;
+                top: 5px;
+                left: 10px;
+                width: 20px;
+                height: 20px;
+                background-color: black;
+            }
+            .botones {
+                position: absolute;
+                top: 420px;
+            }
+        
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js">
+        </script>
+        <script type="text/javascript">
+            // IR al estado final de todas las animaciones --FINISH
+            $(document).ready(function(){
+                $('[name="ir"]').on('click', function(e){
+                    $('.caja').animate({top: 380}, 1000)
+                              .animate({left: 380}, 1000)
+                              .animate({top: 0});
+                              
+                });
+                
+                $('[name=dos]').on('click', function(e){
+                   // $('.caja').
+                });       
+                $('[name=tres]').on('click', function(e){
+                    
+                });         
+                $('[name=cuatro]').on('click', function(e){
+                    
+                });
+            });
+        
+        
+        </script>
+    
+    </head>
+    
+    <body>
+        <div class="cajon"></div>
+        <div class="caja"></div>
+
+        
+        <div class="botones">
+            <input type="button" name="ir" value="go()"><br/>
+            <input type="button" name="dos" value="2"><br/>
+            <input type="button" name="tres" value="3"><br/>
+            <input type="button" name="cuatro" value="4"><br/>
+        
+        
+        </div>
+    </body>
+</html>

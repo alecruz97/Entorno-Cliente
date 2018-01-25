@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var arrayNums = [1,3,5,7,9,11,13,15,17,19,21];
+
+            function numerosImpares(){
+                
+                document.write("El array primitivo en ascendente : " + arrayNums + "<br/>");
+                
+                var sum=0;
+                for(i=0; i<arrayNums.length;i++){
+                    sum+=arrayNums[i];
+                }
+                document.write("La suma total del array es: " + sum + "<br/>");
+                copyArray = arrayNums.reverse();
+                document.write("El array escrito en descendente es " + arrayNums + "<br/>");
+                arrayNums.reverse();
+
+            }
+            
+            function buscarNumero(){
+                var entrada = prompt("Introduzca el numero que quiere usted buscar: ");
+                for(i=0; i<arrayNums.length;i++){
+                    if(arrayNums[i]==entrada){
+                        alert("El numero que ha entrado ha sido encontrado. Se ha encontrado en la posicion  " + i  + " Eliminando...");
+                        arrayNums.splice(i,1);
+                        document.write(arrayNums);
+                    }
+                }
+            }
+            numerosImpares();
+            
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Buscar Elemento" onclick="buscarNumero()"/>
+    </body>
+</html>

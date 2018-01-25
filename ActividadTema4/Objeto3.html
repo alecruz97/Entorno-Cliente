@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            Array.prototype.eliminar = function(){
+                document.write(this + "<br/>");
+                var palabra = prompt("Introduzca el nombre de lo que quiere borrar: ");
+                var pos = this.indexOf(palabra);
+                    if(pos != -1){
+                        global.splice(pos,1);
+                        document.write(global + "<br/>");
+                    }else{
+                        alert("Alerta, palabra no encontrada");
+                    }
+            }
+            var global = ["Audi", "Mercedes", "Seat", "Fiat", "Jaguar", "Suzuki"];
+            global.eliminar();
+
+        </script>
+    </head>
+    <body>
+        <p id="parrafo"></p>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 2</title>
+        <script type="text/javascript">
+        var str1 = "Una playa es un depósito de sedimentos no consolidados que varían entre arena y grava, excluyendo el fango ya que no es un plano aluvial o costa de manglar, que se extiende desde la base de la duna o el límite donde termina la vegetación hasta una profundidad por donde los sedimentos ya no se mueven.";
+        
+        var str2 = "Un monte (legislación española) es de acuerdo con la Ley de Montes de 21 de noviembre de 2003 (BOE 280 de 22 de noviembre de 2003) todo terreno en el que vegetan especies forestales arbóreas, arbustivas, de matorral o herbáceas, sea espontáneamente o procedan de siembra o plantación, que cumplan o puedan cumplir funciones ambientales, protectoras, productoras, culturales, paisajísticas o recreativas.";
+            
+        var arrays = [str1,str2];
+            
+            function parrafo(evento){
+                switch(this.id){
+                    case("playa"):  var par  = document.createElement("p");
+                                    var text = document.createTextNode(str1);
+                                    par.appendChild(text);
+                                    if(parrafos.hasChildNodes){
+                                        parrafos.replaceChild(par, parrafos.childNodes[0]);
+                                    }else{
+                                        parrafos.appendChild(par);
+                                    }
+                        break;
+                        
+                    case("monte"): var par = document.createElement("p");
+                                    var text = document.createTextNode(str2);
+                                    par.appendChild(text);
+                                        if(parrafos.hasChildNodes){
+                                        parrafos.replaceChild(par, parrafos.childNodes[0]);
+                                    }else{
+                                        parrafos.appendChild(par);
+                                    }
+                        break;
+                    default: console.log("no"); break;
+                }
+                
+            }
+            
+            
+            window.onload = () => {
+                playa.onclick = parrafo;
+                monte.onclick = parrafo;
+            }
+            
+            
+        </script>
+
+    </head>
+
+    <body>
+
+        <img id="playa" src="playa.jpg" height="200" width="400"/>
+        <img id="monte" src="monte.jpg" height="200" width="400"/>
+        
+        <div id="parrafos"> </div>
+        
+    </body>
+    
+    
+    
+</html>

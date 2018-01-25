@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 4</title>
+        <script type="text/javascript">
+            
+            function mostrar(e){
+                var tar = e.target;
+                var div = tar.getElementsByTagName("div")[0];
+                
+                div.parentNode.style.color = "red";
+                if(div.style.display == "none"){
+                    div.style.display = "block";
+                    div.style.color = "black";
+                }else if(div.style.display == "block"){
+                    div.style.display = "none";
+                }
+             
+            }
+            
+            
+            window.onload = () =>{
+                p1.addEventListener("click", mostrar);
+                p2.addEventListener("click", mostrar);
+                p3.addEventListener("click", mostrar);
+            }
+
+        </script>
+    </head>
+
+    <body>
+        
+        <div id="p1" name="parrafo1">¿Que tal llevas entorno cliente?
+        <div id="resp1" name="parrafo1" style="display: none">Flama</div>
+        </div>
+        <div id="p2" name="parrafo2">¿Que tal llevas entorno servidor?
+        <div id="resp2" name="parrafo2" style="display: none">De maravilla</div>
+        </div>
+        <div id="p3" name="parrafo3">¿Que tal llevas diseño de interfaces?
+        <div id="resp3" name="parrafo3" style="display: none">Al dia y de lujo</div>
+        </div>
+        
+
+    </body>
+    
+    
+    
+</html>

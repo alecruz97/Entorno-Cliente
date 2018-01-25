@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var regExpNombre = /^[A-Za-z\s$]/;
+            var regExpNum = /^(10|[0-9]((\.|\,)[0-9]{1,2})?)$/;
+            
+            function anadir(){
+
+                var nombres = new Array(5);
+                var notas1 = [1,1,1];
+                var notas2 = [2,2,2];
+                var notas3 = [3,3,3];
+                var notas4 = [4,4,4];
+                var notas5 = [5,5,5];
+                var notas = [notas1,notas2,notas3,notas4,notas5];
+                
+                for(var i = 0; i < nombres.length; i++){
+                    nombres[i] = prompt("Inserte el nombre del alumno " + (i+1));
+                    if(regExpNombre.test(nombres[i])){
+                        for(var j = 0; j < notas[i].length; j++){
+                            notas[i][j] = prompt("Introduzca la nota " + (j+1));
+                            if(regExpNum.test(notas[i][j])){
+                                
+                            }else{
+                                alert("Nota no introducida correctamente.")
+                                j -= 1;
+                            }
+                        }
+                    }else{
+                        alert("Nombre no introducido correctamente.");
+                        i -= 1;
+                    }
+                }
+                
+                var str = "";
+                
+                for(var i = 0; i<notas.length; i++){
+                    str += "<tr> <td>" + nombres[i] + "</td>";
+                    for(var j = 0; j<notas[i].length; j++){
+                        str += "<td> " + notas[i][j] + "</td>";
+                    }
+                    str += "</tr>";
+                }
+                tabla.innerHTML += str;
+        }
+
+        </script>
+    </head>
+    <body>
+        <table id="tabla" border="1">
+            <tr>
+            <th>Nombre del alumno</th>
+            <th>Entorno Cliente</th>
+            <th>Entorno Servidor</th>
+            <th>Diseño de Interfaces Web</th>
+            </tr>
+        </table>
+        <input type="button" value="añadir fila" onclick="anadir();"/>
+    </body>
+</html>

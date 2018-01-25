@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            function ingresarPalabras(){
+                var flama = prompt("Ingrese aqui las palabras").split(" ");
+                var nueva = window.open("","","width = 400, height = 400");;
+                
+                nueva.document.write(flama + "<br/>");
+                flama.reverse();
+                nueva.document.write("El array escrito al reves es : " + flama + "<br/>");
+                flama.reverse();
+                nueva.document.write("La primera palabra escrita por el usuario es " + flama[0] + " y la última palabra escrita por el usuario es " + flama[flama.length-1] + "<br/>");
+                nueva.document.write("Hay " + flama.length + " palabras en el array <br/>");
+                flama.sort();
+                nueva.document.write("El array ordenado alfabéticamente es : " + flama + "<br/>");
+                flama.reverse();
+                nueva.document.write("El array ordenado alfabeticamente en orden descendente es: " + flama + "<br/>");
+                
+                
+            }
+            
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Ingresar palabras" onclick="ingresarPalabras();"/>
+    </body>
+</html>

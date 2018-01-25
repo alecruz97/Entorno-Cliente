@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            class Persona{
+                constructor(nombre, edad, genero){
+                    this._nombre = nombre;
+                    this._edad = edad;
+                    this._genero = genero;
+                }
+                
+                get nombre(){
+                    return this._nombre;
+                }
+                set nombre(nombre){
+                    if(nombre===null || nombre===""){
+                        this._nombre = "default";
+                    }else{
+                        this._nombre = nombre;
+                    }
+                }             
+                get edad(){
+                    return this._edad;
+                }
+                set edad1(edad){
+                    this._edad = edad;
+                }           
+                get genero(){
+                    return this._genero;
+                }
+                set genero(genero){
+                    this._genero = genero;
+                }
+                
+                get propiedades(){
+                    for(var i in this){
+                        if(typeof this[i]!=='function'){
+                            document.write(i.replace("_","") + "--> " + this[i] + "<br/>");
+                        }
+                    }
+                        document.write("<br/>---------------------------------------<br/>");
+
+                }
+                
+            }
+            
+            class Estudiante extends Persona{
+                constructor(nombre,edad,genero,curso, grupo){
+                    super(nombre,edad,genero);
+                    this._curso = curso;
+                    this._grupo = grupo;
+                }
+                
+                get curso(){
+                    return this._curso;
+                }
+                set curso(curso){
+                    this._curso = curso;
+                }
+                get grupo(){
+                    return this._grupo;
+                }
+                set grupo(grupo){
+                    this._grupo = grupo;
+                }
+                
+                get registrar(){
+                    document.write("El estudiante esta en " + this.curso + ", " + this.grupo + "<br/>");
+                }
+            }
+           
+            class Profesor extends Persona{
+                constructor(nombre,edad,genero,asignatura,nivel){
+                super(nombre,edad,genero);
+                this._asignatura = asignatura;
+                this._nivel = nivel;
+                }
+                
+                get asignatura(){
+                    return this._asignatura;
+                }
+                set asignatura(asignatura){
+                    this._asignatura = asignatura;
+                }
+                get nivel(){
+                    return this._nivel;
+                }
+                set nivel(nivel){
+                    this._nivel = nivel;
+                }
+                get asignar(){
+                    document.write("El profesor da " + this.asignatura + " en " + this.nivel + " con " + this.edad + " años<br/>");
+                }
+            }
+         
+            
+                var p1 = new Persona("Daniel",24,"masculino");
+                console.log(p1.edad);
+                console.log(p1.nombre);
+                p1.nombre = "Paco";
+                p1.propiedades;
+                console.log(p1._nombre);
+                
+                var e1 = new Estudiante("Chema",24,"mascu","2º","B");
+                e1.propiedades;
+                e1.registrar;
+            
+                var p1 = new Profesor("Jose", 42, "masculino","DIW",2);
+                p1.propiedades;
+                p1.asignar;
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

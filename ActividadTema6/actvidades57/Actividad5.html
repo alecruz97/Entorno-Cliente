@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tema 6 ej 5</title>
+
+
+        <script type="text/javascript">
+            
+            var total = 0;
+            
+            function avanzar(){
+                total = (total + 1) % (document.getElementsByTagName("img").length);
+                cambiar(total);
+            }
+            
+            function retrasar(){
+                if(total == 0){
+                    total = document.getElementsByTagName("img").length-1;
+                }else{
+                    total = (total - 1) % (document.getElementsByTagName("img").length-1);
+                }
+                cambiar(total);
+                
+            }
+            
+            function cambiar(num){
+                for(var i = 0; i < document.getElementsByTagName("img").length; i++){
+                   if(i != num){
+                        var att = document.createAttribute("style");
+                        att.value = "display : none";
+                        document.getElementsByTagName("img")[i].setAttributeNode(att);
+                   }else{
+                       var att = document.createAttribute("style");
+                       att.value = "display : block";
+                       document.getElementsByTagName("img")[i].setAttributeNode(att);
+                   }
+                } 
+                
+            }
+            
+            window.onload = () => {
+                cambiar(total);
+                link0.addEventListener("click", retrasar);
+                link1.addEventListener("click", avanzar);
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <a id="link0" href="#">Atras</a>
+        <span id="diapositivas">
+            <img src="diapositiva1.jpg" alt="Diapositiva 1" height="100" width="200">
+            <img src="diapositiva2.jpg" alt="Diapositiva 2" height="100" width="200">
+            <img src="diapositiva3.jpg" alt="Diapositiva 3" height="100" width="200">
+        </span>
+        <a id="link1" href="#">Adelante</a>
+
+    </body>
+    
+    
+    
+</html>

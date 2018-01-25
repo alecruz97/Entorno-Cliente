@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		.verde {color:green;}
+		.azul {color:blue;}
+		.borde {border:2px solid;}
+	</style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+       
+        // A
+            //$('p:first, p:last').addClass('borde');
+        
+        // B
+    //        $('ul:nth-child(4)').find('li').addClass('verde');
+        
+        // C
+      //      $('p').removeClass('borde');
+        
+        // D
+            /*$('p').on('click', function(){
+                $(this).toggleClass('borde');
+            });
+        */
+        
+        // E
+          /*  $('p:first').after('<p>Modulos de primero</p>');
+           $('p:first').remove();
+           */
+        // F
+            /*$('p:last').before('<p>Modulos de segundo</p>');
+            $('p:last').remove();
+            */
+        
+        // G
+            //$('*:empty').remove();
+
+        // H
+           // $('ul:first').prepend('<li>Formacion y orientacion laboral</li>');
+           // $('ul:first').append('<li>Formacion y orientacion laboral</li>');
+        
+            //OTRO SENTIDO --> $('<li>FOL</li>').appendTo($('ul:first'));
+        
+        // I
+            //$('ul:first').append('<li>Programacion</li>');
+            //$('ul:first').prepend('<li>Programacion</li>');
+        
+        // J
+        /*    var si = $('<li>Sistemas informaticos</li>');
+            $('ul:first li:contains("Base de Datos")').after(si);
+          */
+        
+        // K
+
+           /* $('ul:nth-child(4) li ').on('click', function(){
+                var cantidad = $(this).find('ul').data("hours");
+                var horas = $('<li>Son ' + cantidad + ' horas</li>');
+                $(this).children('ul').append(horas);
+                $(this).unbind("click");
+            });
+            */
+            
+        // L
+            //$('ul:eq(1)').empty();
+
+        // M
+            //$('ul:first').remove();
+        console.log($('ul:nth-child(4)'));
+        console.log($('ul').length);
+    });
+    
+    </script>
+</head>
+<body>
+	<p>Primero</p>
+	<ul>
+		
+		<li>Base de Datos</li>
+		<li>Lenguajes de Marcas</li>
+		<li></li>
+	</ul>
+
+	<p>Segundo</p>
+	<ul>
+		<li >DWESE
+			<ul data-hours='10'>
+				<li class='azul' >Desarrollo Web en Entorno Servidor</li>
+				
+			</ul>
+		</li>
+		<li>DWECL
+			<ul data-hours='7'>
+				<li class='azul'>Desarrollo Web en Entorno Cliente</li>
+				
+			</ul>
+		</li>
+		<li>DAW
+			<ul data-hours='3'>
+				<li class='azul'>Despliegue de Aplicaciones Web</li>
+				
+			</ul>
+		</li>
+		<li>DIWEB
+			<ul data-hours='6'>
+				<li class='azul'>Diseño de Interfaces Web</li>
+				
+			</ul>
+		</li>
+		<li>EIE
+			<ul data-hours='4'>
+				<li class='azul'>Entorno e Iniciativa Empresarial</li>
+				
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>
