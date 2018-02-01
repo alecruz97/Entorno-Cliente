@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>menú</title>
+
+        <style type="text/css">
+
+            a {
+                text-decoration: none;
+            }
+
+            nav > div {
+                width : 25%;
+                float: left;
+                text-align: center;
+            }
+
+            .rojo {
+            }
+
+            .azul {
+            }
+        </style>
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="ej6.js"></script>
+        <script type="text/javascript">
+
+          $(document).ready(function(){
+            ops = {
+                color: 'green',
+                backgroundColor:'red',
+                velocidad: 1,
+                colorletras: 'black',
+                alineamiento: 'right',
+                ancho: '300px',
+            };
+
+            $('nav').bonito();
+            $('nav > div > div:not(:contains(a))').addClass('azul');
+            $('a').parent().parent().addClass('rojo');
+            $('nav > div > div:gt(1)');
+            $('.azul').siblings().hide();
+            $('.azul').desplegar();
+            $('.rojo').recoger();
+          });
+
+        </script>
+
+    </head>
+    <body>
+        <nav>
+             <div>
+                 <div>Inicio</div>
+             </div>
+
+             <div>
+                 <div>Sobre nosotros</div>
+                 <div>
+                     <div><a href="#">Información</a></div>
+                     <div><a href="#">Contacto</a></div>
+                 </div>
+             </div>
+             <div>
+                 <div>Proyectos</div>
+                 <div>
+                     <div><a href="#">Diseño Web</a></div>
+                     <div><a href="#">Aplicaciones web</a></div>
+                     <div><a href="#">Branding</a></div>
+                 </div>
+             </div>
+                <div>
+                    <div>FAQs</div>
+                </div>
+    </nav>
+    </body>
+</html>
