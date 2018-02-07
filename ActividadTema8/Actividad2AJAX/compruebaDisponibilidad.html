@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Actividad 2 JSOM</title>
+        <script type="text/javascript">
+
+            var pet;
+
+            function coger(){
+                if(window.XMLHttpRequest){
+                    pet = new XMLHttpRequest();
+                }
+                if(pet){
+                    pet.onreadystatechange = comprobarDisponibilidad;
+                    pet.open("POST", "compruebaDisponibilidadJSON.php", true);
+                    pet.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    pet.send("login="+document.getElementsByTagName('input')[0].value);
+                }
+            }
+
+            function comprobarDisponibilidad(){
+                if(pet.readyState == 4 && pet.status == 200){
+                    var datos = JSON.parse(pet.responseText);
+                    var p = '';
+                    if(datos.disponible == 'si'){
+                        console.log('si');
+                        resultado.innerHTML = 'El nombre que ha introducido es válido';
+
+                    }else{
+                        console.log('no');
+                        p+='El nombre introducido no se encuentra disponible, le agregamos unas cuantas sugerencias: <ul>';
+                        
+                        for(var i = 0; i < datos.alternativas.length; i++){
+                                p+='<li>' + datos.alternativas[i] + '</li>';
+                        }
+
+                        p+='</ul>'
+                        resultado.innerHTML = p;
+                    }
+
+                }
+            }
+
+            window.onload = function(){
+                document.getElementsByTagName('input')[1].addEventListener('click',coger);
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <h3>Formulario de disponibilidad de nombres</h3>
+            <label>Introduzca el nombre que desea: <input type="text" placeholder="Introduzca nombre aqui"/>
+            </label>
+            <input type="button" value="Enviar"/>
+            <br>
+            <br>
+
+            <div id="resultado">
+
+            </div>
+
+
+    </body>
+
+</html>
