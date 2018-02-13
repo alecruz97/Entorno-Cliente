@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 1 Peticiones AJAX II</title>
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                $('#mostrar').on('click',function(e){
+                    e.preventDefault();
+                    $.ajax('servidor.php',
+                    {
+                        type: 'GET',
+                        success: function(data){
+                            $('#resultado').empty();
+                            $.each(data, function(index, cosa){
+                                $('#resultado').append('<h3>'+(index+1)+'º DAW' + '</h3>');
+                                $('#resultado').append('<ul>');
+                                for(i in cosa){
+                                    $('#resultado').append('<li>' +
+                                        'Nombre : ' + cosa[i].nombre +
+                                      ', DNI : ' + cosa[i].dni +
+                                      ', Acceso: ' + cosa[i].acceso + '</li>');
+                                }
+                                $('#resultado').append('</ul>');
+                            });
+                        }
+                    },
+                    'json');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="submit" id="mostrar" value="mostrarCursos">
+            <div id="resultado">
+
+            </div>
+        </form>
+    </body>
+</html>

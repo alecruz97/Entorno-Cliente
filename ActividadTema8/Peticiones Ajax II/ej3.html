@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 3 Peticiones AJAX II</title>
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" >
+
+        $(document).ready(function(){
+            $('form').on('click','input[type="submit"]' ,function(e){
+                e.preventDefault();
+                $('#resultado').empty();
+                $.ajax('servidor.php',
+                        {
+                        type: 'POST',
+                        data: {'val': $('select').val()},
+                        success: function(data){
+                            console.log(data);
+                            $('#resultado').append('<h3>Lista de alumnos matriculados en '+ $('select').val() + 'º DAW</h3>');
+                            $('#resultado').append('<table border="1"><tr><th>Nombre</th><th>DNI</th><th>Acceso</th></tr></table>');
+                            for (i in data){
+                                $('#resultado').children('table').append('<tr><td>'+data[i].nombre+'</td><td>'+data[i].dni+'</td><td>'+data[i].acceso+'</td></tr>');
+                            }
+                        }
+                        })
+
+            });
+        });
+
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>Introduzca el curso que quiere mostrar
+                <select>
+                    <option value="0">Selecciona un curso</option>
+                    <option value="1">1º DAW</option>
+                    <option value="2">2º DAW</option>
+                </select>
+                <input type="submit" id="enviar" value="Consultar"/>
+            </label>
+
+            <div id="resultado">
+
+            </div>
+
+        </form>
+    </body>
+</html>
